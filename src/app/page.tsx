@@ -3,13 +3,19 @@ import Image from "next/image";
 import { Navbar } from "./components/Navbar";
 import { About } from "./components/About";
 import { Hero } from "./components/Hero";
+import { Skills } from "./components/Skills";
+import { Footer } from "./components/Footer";
+import { Projects } from "./components/Projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-slate-950 text-zinc-200">
+    <main className="flex min-h-screen w-full flex-col items-center text-zinc-200">
       <Navbar />
       <Hero />
       <About />
+      <Skills />
+      <Projects />
+      <Footer />
     </main>
   );
 }

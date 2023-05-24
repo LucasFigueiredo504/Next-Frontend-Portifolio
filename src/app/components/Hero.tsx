@@ -1,11 +1,13 @@
 export function Hero() {
   return (
-    <section className="w-full py-40 mt-32 border-b-2">
+    <section className="w-full py-56 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
       <div className="flex max-w-7xl mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
-          <h2 className="text-3xl font-bold">
-            Olá, me chamo Lucas Emanoel{"</>"}
+          <h2 className="text-4xl font-bold text-primary">
+            Olá,
+            <br /> me chamo
+            <br /> Lucas Emanoel{"</>"}
           </h2>
         </div>
         {/*Right*/}
