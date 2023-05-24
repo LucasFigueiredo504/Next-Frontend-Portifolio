@@ -12,6 +12,7 @@ export function Projects() {
           return (
             <ProjectCard
               coverImage={project.image}
+              link={project.link}
               title={project.title}
               content={project.content}
               key={i}
