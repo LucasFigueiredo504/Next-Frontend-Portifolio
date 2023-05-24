@@ -4,10 +4,10 @@ export function Hero() {
       <div className="flex max-w-7xl mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
-          <h2 className="text-4xl font-bold text-primary">
+          <h2 className="text-5xl font-bold text-primary">
             Olá,
             <br /> me chamo
-            <br /> Lucas Emanoel{"</>"}
+            <br /> Lucas Emanoel {"</>"}
           </h2>
         </div>
         {/*Right*/}

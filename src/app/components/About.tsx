@@ -3,8 +3,10 @@ import LaptopImage from "../assets/laptop.png";
 
 export function About() {
   return (
-    <section className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary">
-      <h1 className="text-center mb-28 text-5xl font-bold">Sobre mim</h1>
+    <section className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary ">
+      <h1 className="text-center mb-28 text-5xl font-bold text-primary">
+        Sobre mim
+      </h1>
       <div className="flex max-w-7xl mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
