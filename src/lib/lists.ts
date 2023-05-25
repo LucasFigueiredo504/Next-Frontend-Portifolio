@@ -11,7 +11,7 @@ export const projectList = [
     image: PokeApi,
     link: "",
     title: "PokeApi",
-    content: "React, fetch api",
+    content: "React, Context, local storage, fetch api",
   },
   {
     image: tmdb,

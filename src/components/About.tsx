@@ -3,7 +3,10 @@ import LaptopImage from "../assets/laptop.png";
 
 export function About() {
   return (
-    <section className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary ">
+    <section
+      className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary "
+      id="about"
+    >
       <h1 className="text-center mb-28 text-5xl font-bold text-primary">
         Sobre mim
       </h1>
