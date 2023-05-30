@@ -1,7 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Flex as Roboto } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
 
 export const metadata = {
   title: "Portifólio",
@@ -15,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={`${roboto.variable} font-sans`}>{children}</body>
     </html>
   );
 }
