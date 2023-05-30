@@ -69,15 +69,15 @@ export const skillsList = [
 export const projectList = [
   {
     image: PokeApi,
-    link: "",
+    link: "https://lucastheldl.github.io/ReactPokedexV2/",
     title: "PokeApi",
     content: "React, Context, local storage, fetch api",
   },
   {
     image: tmdb,
-    link: "",
+    link: "https://lucastheldl.github.io/React-TMDB/",
     title: "TMDB melhores filmes",
-    content: "React, Typescript, fetch api",
+    content: "React, Router, Typescript, fetch api",
   },
   {
     image: weather,
@@ -87,22 +87,24 @@ export const projectList = [
   },
   {
     image: pomodoro,
-    link: "https://lucastheldl.github.io/WeatherAPI/",
+    link: "https://lucastheldl.github.io/IgnitePomodoro/",
     title: "Pomodoro app",
-    content: "React, Typescript, Styled components, local storage",
-  },
-  {
-    image: lore,
-    link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Lore Artwork site",
-    content: "Javascript, Scss",
+    content:
+      "React, Typescript, Context, Reducer, Styled components, local storage",
   },
   {
     image: placeholder,
-    link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Em breve...",
-    content: "Projecto em react...",
+    link: "https://lucastheldl.github.io/React-MiniBlog/",
+    title: "Mini blog",
+    content: "React, Context, Router, local storage, firebase",
   },
+  {
+    image: lore,
+    link: "https://lucastheldl.github.io/LoreSite/",
+    title: "Lore Artwork site",
+    content: "Javascript, Scss",
+  },
+
   {
     image: placeholder,
     link: "https://lucastheldl.github.io/WeatherAPI/",

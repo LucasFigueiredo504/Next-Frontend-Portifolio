@@ -1,5 +1,6 @@
 import Image from "next/image";
 import picture from "../assets/picture.jpg";
+import { Paperclip } from "lucide-react";
 
 export function Hero() {
   return (

@@ -1,3 +1,4 @@
+import { ArrowUpLeft } from "lucide-react";
 import { projectList } from "../../lib/lists";
 import { ProjectCard } from "./ProjectCard";
 
@@ -29,8 +30,8 @@ export function Projects() {
           target="blank"
           className="flex justify-center"
         >
-          <p className="mt-20 text-2xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
-            Repositórios Github
+          <p className="flex items-center gap-1 mt-20 text-2xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
+            <ArrowUpLeft size={30} /> Repositórios Github
           </p>
         </a>
       </div>
