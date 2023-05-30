@@ -4,6 +4,7 @@ import tmdb from "../assets/tmdb.png";
 import weather from "../assets/weatherApp.jpg";
 import pomodoro from "../assets/1681137327493.jpg";
 import lore from "../assets/ChaosDragMin.jpg";
+import placeholder from "../assets/reactLogo.jpg";
 //skills
 import html from "../assets/html.png";
 import CSS from "../assets/css.png";
@@ -97,21 +98,21 @@ export const projectList = [
     content: "Javascript, Scss",
   },
   {
-    image: weather,
+    image: placeholder,
     link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Mini blog",
-    content: "React, local storage",
+    title: "Em breve...",
+    content: "Projecto em react...",
   },
   {
-    image: weather,
+    image: placeholder,
     link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Mini blog",
-    content: "React, local storage",
+    title: "Em breve...",
+    content: "Projecto em react...",
   },
   {
-    image: weather,
+    image: placeholder,
     link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Mini blog",
-    content: "React, local storage",
+    title: "Em breve...",
+    content: "Projecto em react...",
   },
 ];

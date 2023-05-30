@@ -6,7 +6,7 @@ export function Footer() {
     >
       <a
         href="mailto:LucasFigueiredo.emanoel@gmail.com"
-        className="flex items-center justify-center text-xl underline sm:container sm:mx-auto"
+        className="flex items-center justify-center text-xl underline sm:container sm:mx-auto transition-colors hover:text-primary"
       >
         LucasFigueiredo.emanoel@gmail.com
       </a>

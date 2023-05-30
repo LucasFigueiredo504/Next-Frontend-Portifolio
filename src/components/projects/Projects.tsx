@@ -10,18 +10,29 @@ export function Projects() {
       <h1 className="text-center mb-28 text-5xl font-bold text-primary">
         Projetos
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 sm:container sm:mx-auto">
-        {projectList.map((project, i) => {
-          return (
-            <ProjectCard
-              coverImage={project.image}
-              link={project.link}
-              title={project.title}
-              content={project.content}
-              key={i}
-            />
-          );
-        })}
+      <div className="sm:container sm:mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          {projectList.map((project, i) => {
+            return (
+              <ProjectCard
+                coverImage={project.image}
+                link={project.link}
+                title={project.title}
+                content={project.content}
+                key={i}
+              />
+            );
+          })}
+        </div>
+        <a
+          href="https://github.com/lucastheldl"
+          target="blank"
+          className="flex justify-center"
+        >
+          <p className="mt-20 text-2xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
+            Repositórios Github
+          </p>
+        </a>
       </div>
     </section>
   );
