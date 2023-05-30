@@ -1,3 +1,5 @@
+import { Mail } from "lucide-react";
+
 export function Footer() {
   return (
     <footer
@@ -8,6 +10,7 @@ export function Footer() {
         href="mailto:LucasFigueiredo.emanoel@gmail.com"
         className="flex items-center justify-center text-xl underline sm:container sm:mx-auto transition-colors hover:text-primary"
       >
+        <Mail size={48} />
         LucasFigueiredo.emanoel@gmail.com
       </a>
     </footer>
