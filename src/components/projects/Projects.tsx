@@ -10,7 +10,7 @@ export function Projects() {
       <h1 className="text-center mb-28 text-5xl font-bold text-primary">
         Projetos
       </h1>
-      <div className="grid grid-cols-4 gap-10 sm:container sm:mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 sm:container sm:mx-auto">
         {projectList.map((project, i) => {
           return (
             <ProjectCard

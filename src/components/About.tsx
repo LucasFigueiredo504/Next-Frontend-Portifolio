@@ -13,7 +13,11 @@ export function About() {
       <div className="flex sm:container sm:mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
-          <Image src={LaptopImage} alt={"laptop"} width={500} height={500} />
+          <Image
+            src={LaptopImage}
+            alt={"laptop"}
+            className="w-[600px] h-auto"
+          />
         </div>
         {/*Right*/}
         <div className="w-1/2">
