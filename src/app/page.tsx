@@ -9,7 +9,7 @@ import { Projects } from "../components/projects/Projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center text-zinc-200">
+    <main className="flex min-h-screen w-full flex-col items-center text-zinc-200 scroll">
       <Navbar />
       <Hero />
       <About />

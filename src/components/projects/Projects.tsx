@@ -5,10 +5,10 @@ import { ProjectCard } from "./ProjectCard";
 export function Projects() {
   return (
     <section
-      className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
+      className="flex-col w-full py-20 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
       id="projects"
     >
-      <h1 className="text-center mb-28 text-5xl font-bold text-primary">
+      <h1 className="text-center mb-20 text-4xl font-bold text-primary">
         Projetos
       </h1>
       <div className="sm:container sm:mx-auto">
@@ -30,7 +30,7 @@ export function Projects() {
           target="blank"
           className="flex justify-center"
         >
-          <p className="flex items-center gap-1 mt-20 text-2xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
+          <p className="flex items-center gap-1 mt-20 text-xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
             <ArrowUpLeft size={30} /> Repositórios Github
           </p>
         </a>

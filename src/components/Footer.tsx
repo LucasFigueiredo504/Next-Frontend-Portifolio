@@ -8,7 +8,7 @@ export function Footer() {
     >
       <a
         href="mailto:LucasFigueiredo.emanoel@gmail.com"
-        className="flex gap-2 p-3 items-center justify-center text-xl underline sm:container sm:mx-auto transition-colors hover:text-primary"
+        className="flex gap-2 p-3 items-center justify-center text-lg underline sm:container sm:mx-auto transition-colors hover:text-primary"
       >
         <Mail size={25} />
         LucasFigueiredo.emanoel@gmail.com
@@ -18,7 +18,7 @@ export function Footer() {
         lucas-emanoel-figueiredo-da-silva
         "
         target="blank"
-        className="flex gap-2 p-3 items-center justify-center text-xl underline sm:container sm:mx-auto transition-colors hover:text-primary"
+        className="flex gap-2 p-3 items-center justify-center text-lg underline sm:container sm:mx-auto transition-colors hover:text-primary"
       >
         <Linkedin size={25} />
         Linkedin

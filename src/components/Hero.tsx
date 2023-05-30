@@ -4,14 +4,15 @@ import { Paperclip } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="w-full py-56 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
+    <section className="w-full py-36 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
       <div className="flex sm:container sm:mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
-          <h2 className="text-6xl font-bold text-primary">
+          <h2 className="text-5xl font-bold text-primary">
             <span className="text-zinc-200">
               Olá,
-              <br /> me chamo
+              <br />
+              me chamo
             </span>
             <br />
             Lucas Emanoel {"</>"}
@@ -22,7 +23,7 @@ export function Hero() {
           <Image
             src={picture}
             alt=""
-            className="w-[450px] h-auto rounded-full border border-primary"
+            className="w-[350px] h-auto rounded-full border border-primary"
           />
           <a
             href="../assets/curriculo.pdf"

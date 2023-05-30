@@ -18,7 +18,7 @@ export function Skills() {
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary"
       id="skills"
     >
-      <h1 className="text-center mb-28 text-5xl font-bold text-primary">
+      <h1 className="text-center mb-28 text-4xl font-bold text-primary">
         Habilidades
       </h1>
       <div className="flex gap-7 sm:container sm:mx-auto">
@@ -35,7 +35,7 @@ export function Skills() {
                     <Image
                       src={skill.image}
                       alt={skill.title}
-                      className="w-28 h-28"
+                      className="w-28 h-auto"
                     ></Image>
                   }
                 </div>
@@ -44,7 +44,7 @@ export function Skills() {
           })}
         </div>
         {/**right */}
-        <div className="w-1/2 text-xl">
+        <div className="w-1/2 text-lg">
           <p className="content" id="placeholder">
             Clique em uma tecnologia para saber mais.
           </p>

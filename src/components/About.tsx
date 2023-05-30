@@ -7,7 +7,7 @@ export function About() {
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary "
       id="about"
     >
-      <h1 className="text-center mb-28 text-5xl font-bold text-primary">
+      <h1 className="text-center mb-28 text-4xl font-bold text-primary">
         Sobre mim
       </h1>
       <div className="flex sm:container sm:mx-auto">
@@ -16,12 +16,12 @@ export function About() {
           <Image
             src={LaptopImage}
             alt={"laptop"}
-            className="w-[600px] h-auto"
+            className="w-[450px] h-auto"
           />
         </div>
         {/*Right*/}
         <div className="w-1/2">
-          <p className="text-xl">
+          <p className="text-lg">
             Meu nome é Lucas e eu sou apaixonado por tecnologia. Iniciei minha
             jornada na programação em 2018, desenvolvendo jogos em C# na
             plataforma Unity, em 2021 comecei a me interessar pelo
