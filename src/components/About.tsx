@@ -10,14 +10,14 @@ export function About() {
       <h1 className="text-center mb-28 text-5xl font-bold text-primary">
         Sobre mim
       </h1>
-      <div className="flex max-w-7xl mx-auto">
+      <div className="flex sm:container sm:mx-auto">
         {/*Left*/}
         <div className="flex items-center w-1/2">
           <Image src={LaptopImage} alt={"laptop"} width={500} height={500} />
         </div>
         {/*Right*/}
         <div className="w-1/2">
-          <p className="text-lg">
+          <p className="text-xl">
             Meu nome é Lucas e eu sou apaixonado por tecnologia. Iniciei minha
             jornada na programação em 2018, desenvolvendo jogos em C# na
             plataforma Unity, em 2021 comecei a me interessar pelo

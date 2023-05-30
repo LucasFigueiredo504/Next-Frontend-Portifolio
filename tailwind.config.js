@@ -17,6 +17,9 @@ module.exports = {
         secondary: "#121214",
         terciary: "#29292E",
       },
+      grayscale: {
+        50: "50%",
+      },
     },
   },
   plugins: [],

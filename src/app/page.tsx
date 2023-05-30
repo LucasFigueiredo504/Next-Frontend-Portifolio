@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Navbar } from "../components/Navbar";
 import { About } from "../components/About";
 import { Hero } from "../components/Hero";
-import { Skills } from "../components/skills/Skills";
+import { Skills } from "../components/Skills";
 import { Footer } from "../components/Footer";
 import { Projects } from "../components/projects/Projects";
 
