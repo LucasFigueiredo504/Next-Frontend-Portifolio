@@ -10,7 +10,7 @@ export function About() {
       <h1 className="text-center mb-28 text-4xl font-bold text-primary">
         Sobre mim
       </h1>
-      <div className="flex sm:container sm:mx-auto">
+      <div className="flex container mx-auto px-5">
         {/*Left*/}
         <div className="flex items-center w-1/2">
           <Image

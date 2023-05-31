@@ -5,7 +5,7 @@ import { Paperclip } from "lucide-react";
 export function Hero() {
   return (
     <section className="w-full py-36 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
-      <div className="flex sm:container sm:mx-auto">
+      <div className="flex container mx-auto px-5">
         {/*Left*/}
         <div className="flex items-center w-1/2">
           <h2 className="text-5xl font-bold text-primary">

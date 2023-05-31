@@ -5,13 +5,13 @@ import { ProjectCard } from "./ProjectCard";
 export function Projects() {
   return (
     <section
-      className="flex-col w-full py-20 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
+      className="flex-col w-full py-28 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
       id="projects"
     >
       <h1 className="text-center mb-20 text-4xl font-bold text-primary">
         Projetos
       </h1>
-      <div className="sm:container sm:mx-auto">
+      <div className="container mx-auto px-5">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {projectList.map((project, i) => {
             return (
