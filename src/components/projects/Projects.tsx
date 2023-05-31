@@ -5,7 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 export function Projects() {
   return (
     <section
-      className="flex-col w-full py-28 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
+      className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
       id="projects"
     >
       <h1 className="text-center mb-20 text-4xl font-bold text-primary">

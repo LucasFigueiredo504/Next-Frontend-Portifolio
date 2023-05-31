@@ -26,9 +26,9 @@ export function Hero() {
             className="w-[350px] h-auto rounded-full border border-primary"
           />
           <a
-            href="../assets/curriculo.pdf"
+            href="/files/curriculo.pdf"
             download
-            className="text-2xl font-bold text-terciary rounded-full bg-primary py-5 px-16 border border-transparent cursor-pointer transition-colors hover:border-primary hover:bg-terciary hover:text-primary"
+            className="text-2xl font-bold text-terciary rounded-full bg-primary py-5 px-12 border border-transparent cursor-pointer transition-colors hover:border-primary hover:bg-terciary hover:text-primary"
           >
             Currículo
           </a>

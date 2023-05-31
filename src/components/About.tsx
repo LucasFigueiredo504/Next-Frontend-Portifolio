@@ -22,17 +22,18 @@ export function About() {
         {/*Right*/}
         <div className="w-1/2">
           <p className="text-lg">
-            Meu nome é Lucas e eu sou apaixonado por tecnologia. Iniciei minha
-            jornada na programação em 2018, desenvolvendo jogos em C# na
-            plataforma Unity, em 2021 comecei a me interessar pelo
-            Desenvolvimento Web e foi a partir desse ponto que passei a me
-            aprofundar na área, criando projetos, realizando cursos e estudando
-            por conta própria.
+            Sou apaixonado por tecnologia e pelas infinitas possibilidades que
+            ela proporciona a todos nós. Iniciei minha trajetória na programação
+            no ano de 2018, focado no desenvolvimento de jogos em C# na
+            plataforma Unity. No entanto, em 2021, despertei um grande interesse
+            pelo Desenvolvimento Web, o que me levou a aprofundar-me nessa área
+            por meio da criação de projetos, realização de cursos e estudos
+            independentes.
             <br />
             <br />
-            Atualmente disponho de conhecimento de tecnologias voltadas para o
-            Front-end, assim como domino habilidades em design utilizando o
-            Photoshop.
+            No momento, possuo conhecimentos em tecnologias voltadas para o
+            Front-End, assim como domino habilidades em design utilizando o
+            Photoshop e Figma.
           </p>
         </div>
       </div>
