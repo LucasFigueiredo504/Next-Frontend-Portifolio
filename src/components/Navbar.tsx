@@ -1,7 +1,7 @@
 export function Navbar() {
   return (
     <nav className="w-full py-7 text-zinc-300 fixed border-b-2 border-primary backdrop-blur-md">
-      <div className="flex sm:container sm:mx-auto mx-auto items-center justify-between">
+      <div className="flex container mx-auto px-2 items-center justify-between">
         <a href="#" className="text-lg text-primary">
           {"< / >"}
         </a>

@@ -12,7 +12,7 @@ export function Footer() {
           className="flex gap-2 p-3 items-center justify-center text-lg underline transition-colors hover:text-primary"
         >
           <Mail size={25} />
-          LucasFigueiredo.emanoel@gmail.com
+          lucasfigueiredo.emanoel@gmail.com
         </a>
         <a
           href="www.linkedin.com/in/

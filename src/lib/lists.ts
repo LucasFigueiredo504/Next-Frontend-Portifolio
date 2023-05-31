@@ -10,6 +10,7 @@ import html from "../assets/html.png";
 import CSS from "../assets/css.png";
 import SCSS from "../assets/sass.png";
 import Bootstrap from "../assets/bootstrap.png";
+import Tailwind from "../assets/Tailwind_CSS_Logo.png";
 import git from "../assets/git.png";
 import javascript from "../assets/javascript.png";
 import typescript from "../assets/Typescript_logo_2020.svg.png";
@@ -43,6 +44,10 @@ export const skillsList = [
   {
     image: Bootstrap,
     title: "bootstrap",
+  },
+  {
+    image: Tailwind,
+    title: "tailwind",
   },
   {
     image: git,
