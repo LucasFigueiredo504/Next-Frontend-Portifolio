@@ -4,6 +4,8 @@ import tmdb from "../assets/tmdb.png";
 import weather from "../assets/weatherApp.jpg";
 import pomodoro from "../assets/1681137327493.jpg";
 import lore from "../assets/ChaosDragMin.jpg";
+import miniBlog from "../assets/miniBog.jpg";
+import booksCollection from "../assets/booksCollecion.jpg";
 import placeholder from "../assets/reactLogo.jpg";
 //skills
 import html from "../assets/html.png";
@@ -98,7 +100,7 @@ export const projectList = [
       "React, Typescript, Context, Reducer, Styled components, local storage",
   },
   {
-    image: placeholder,
+    image: miniBlog,
     link: "https://lucastheldl.github.io/React-MiniBlog/",
     title: "Mini blog",
     content: "React, Context, Router, local storage, firebase",
@@ -111,14 +113,14 @@ export const projectList = [
   },
 
   {
-    image: placeholder,
-    link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Em breve...",
-    content: "Projecto em react...",
+    image: booksCollection,
+    link: "https://lucastheldl.github.io/BookCollection/",
+    title: "Book's collection",
+    content: "React, Typescript, Sass, Context, fetch api, local storage",
   },
   {
     image: placeholder,
-    link: "https://lucastheldl.github.io/WeatherAPI/",
+    link: "",
     title: "Em breve...",
     content: "Projecto em react...",
   },

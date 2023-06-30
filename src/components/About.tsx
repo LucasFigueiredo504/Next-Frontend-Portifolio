@@ -33,7 +33,7 @@ export function About() {
             <br />
             No momento, possuo conhecimentos em tecnologias voltadas para o
             Front-End, assim como domino habilidades em design utilizando o
-            Photoshop e Figma.
+            Photoshop.
           </p>
         </div>
       </div>
