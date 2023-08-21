@@ -83,13 +83,13 @@ export const projectList = [
   {
     image: tmdb,
     link: "https://lucastheldl.github.io/React-TMDB/",
-    title: "TMDB melhores filmes",
+    title: "TMDB best movies",
     content: "React, Router, Typescript, fetch api",
   },
   {
     image: weather,
     link: "https://lucastheldl.github.io/WeatherAPI/",
-    title: "Tempo Agora!",
+    title: "Weather now!",
     content: "React, fetch api",
   },
   {
@@ -121,7 +121,7 @@ export const projectList = [
   {
     image: placeholder,
     link: "",
-    title: "Em breve...",
-    content: "Projecto em react...",
+    title: "Comming soon...",
+    content: "React project...",
   },
 ];
