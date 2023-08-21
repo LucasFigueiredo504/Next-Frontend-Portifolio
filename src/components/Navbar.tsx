@@ -7,16 +7,16 @@ export function Navbar() {
         </a>
         <ul className="flex items-center justify-between text-lg">
           <li className="cursor-pointer mr-5 hover:text-primary transition-colors">
-            <a href="#about">Sobre mim</a>
+            <a href="#about">About me</a>
           </li>
           <li className="cursor-pointer mr-5 hover:text-primary transition-colors">
-            <a href="#skills">Habilidades</a>
+            <a href="#skills">Skills</a>
           </li>
           <li className="cursor-pointer mr-5 hover:text-primary transition-colors">
-            <a href="#projects">Projetos</a>
+            <a href="#projects">Projects</a>
           </li>
           <li className="cursor-pointer mr-5 hover:text-primary transition-colors">
-            <a href="#contact">Contato</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </div>

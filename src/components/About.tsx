@@ -8,7 +8,7 @@ export function About() {
       id="about"
     >
       <h1 className="text-center mb-28 text-4xl font-bold text-primary">
-        Sobre mim
+        About me
       </h1>
       <div className="flex container mx-auto px-5">
         {/*Left*/}
@@ -22,18 +22,15 @@ export function About() {
         {/*Right*/}
         <div className="w-1/2">
           <p className="text-lg">
-            Sou apaixonado por tecnologia e pelas infinitas possibilidades que
-            ela proporciona a todos nós. Iniciei minha trajetória na programação
-            no ano de 2018, focado no desenvolvimento de jogos em C# na
-            plataforma Unity. No entanto, em 2021, despertei um grande interesse
-            pelo Desenvolvimento Web, o que me levou a aprofundar-me nessa área
-            por meio da criação de projetos, realização de cursos e estudos
-            independentes.
+            I'm in love with technology and all it's endless possibilities. i
+            started my trajectory in 2018 developing games in Unity, in 2021 i
+            aroused a big interest in Web development which led me to deepen
+            myself in this field through the creation projects, studying of
+            courses and independent studies.
             <br />
             <br />
-            No momento, possuo conhecimentos em tecnologias voltadas para o
-            Front-End, assim como domino habilidades em design utilizando o
-            Photoshop.
+            At the moment i have knowledge in Front-End technologies, as well as
+            skills in design using photoshop.
           </p>
         </div>
       </div>

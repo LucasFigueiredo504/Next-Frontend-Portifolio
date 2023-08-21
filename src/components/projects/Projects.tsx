@@ -31,7 +31,7 @@ export function Projects() {
           className="flex justify-center"
         >
           <p className="flex items-center gap-1 mt-20 text-xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
-            <ArrowUpLeft size={30} /> Repositórios Github
+            <ArrowUpLeft size={30} /> Github Repositories
           </p>
         </a>
       </div>
