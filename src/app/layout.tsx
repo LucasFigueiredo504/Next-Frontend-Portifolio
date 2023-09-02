@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={`${roboto.variable} font-sans`}>{children}</body>
+      <body className={`${roboto.variable} font-sans bg-terciary`}>
+        {children}
+      </body>
     </html>
   );
 }
