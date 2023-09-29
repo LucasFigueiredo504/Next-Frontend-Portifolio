@@ -94,6 +94,12 @@ export const projectList = [
       "React, Typescript, Context, Reducer, Styled components, Local storage",
   },
   {
+    image: booksCollection,
+    link: "https://lucastheldl.github.io/BookCollection/",
+    title: "Book's collection",
+    content: "React, Typescript, Sass, Context, Fetch api, Local storage",
+  } /*,
+  {
     image: tmdb,
     link: "https://lucastheldl.github.io/React-TMDB/",
     title: "TMDB melhores filmes",
@@ -106,12 +112,6 @@ export const projectList = [
     content: "React, Context, Local storage, Fetch api",
   },
   {
-    image: booksCollection,
-    link: "https://lucastheldl.github.io/BookCollection/",
-    title: "Book's collection",
-    content: "React, Typescript, Sass, Context, Fetch api, Local storage",
-  },
-  {
     image: weather,
     link: "https://lucastheldl.github.io/WeatherAPI/",
     title: "Tempo Agora!",
@@ -122,5 +122,5 @@ export const projectList = [
     link: "",
     title: "Em breve...",
     content: "Projecto em react...",
-  },
+  },*/,
 ];

@@ -10,9 +10,9 @@ export function About() {
       <h2 className="text-center mb-28 text-4xl font-bold text-primary">
         Sobre mim
       </h2>
-      <div className="flex container mx-auto px-5">
+      <div className="flex flex-col items-center container mx-auto px-5 sm:flex-row">
         {/*Left*/}
-        <div className="flex items-center w-1/2">
+        <div className="flex items-center w-1/2 ">
           <Image
             src={LaptopImage}
             alt={"laptop"}

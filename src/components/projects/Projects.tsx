@@ -11,8 +11,8 @@ export function Projects() {
       <h2 className="text-center mb-20 text-4xl font-bold text-primary">
         Projetos
       </h2>
-      <div className="container mx-auto px-5">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="flex flex-col items-center container mx-auto px-5 sm:flex-row">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {projectList.map((project, i) => {
             return (
               <ProjectCard

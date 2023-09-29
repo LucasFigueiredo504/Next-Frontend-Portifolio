@@ -21,7 +21,7 @@ export function Skills() {
       <h2 className="text-center mb-20 text-4xl font-bold text-primary">
         Habilidades
       </h2>
-      <div className="flex gap-7 container mx-auto px-5">
+      <div className="flex flex-col items-center gap-7 container mx-auto px-5 sm:flex-row">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center w-1/2 h-fit p-5 my-auto bg-secondary rounded-xl">
           {skillsList.map((skill, i) => {
             return (
