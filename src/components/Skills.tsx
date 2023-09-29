@@ -18,9 +18,9 @@ export function Skills() {
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary"
       id="skills"
     >
-      <h1 className="text-center mb-20 text-4xl font-bold text-primary">
+      <h2 className="text-center mb-20 text-4xl font-bold text-primary">
         Habilidades
-      </h1>
+      </h2>
       <div className="flex gap-7 container mx-auto px-5">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center w-1/2 h-fit p-5 my-auto bg-secondary rounded-xl">
           {skillsList.map((skill, i) => {

@@ -8,7 +8,7 @@ export function Hero() {
       <div className="flex container mx-auto px-5">
         {/*Left*/}
         <div className="flex items-center w-1/2">
-          <h2 className="text-5xl font-bold text-primary">
+          <h1 className="text-5xl font-bold text-primary">
             <span className="text-zinc-200">
               Olá,
               <br />
@@ -16,7 +16,7 @@ export function Hero() {
             </span>
             <br />
             Lucas Emanoel {"</>"}
-          </h2>
+          </h1>
         </div>
         {/*Right*/}
         <div className="flex flex-col gap-10 items-center w-1/2">

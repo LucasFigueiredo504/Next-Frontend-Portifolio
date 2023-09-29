@@ -8,9 +8,9 @@ export function Projects() {
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary"
       id="projects"
     >
-      <h1 className="text-center mb-20 text-4xl font-bold text-primary">
+      <h2 className="text-center mb-20 text-4xl font-bold text-primary">
         Projetos
-      </h1>
+      </h2>
       <div className="container mx-auto px-5">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {projectList.map((project, i) => {

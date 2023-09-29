@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
 
 export const metadata = {
-  title: "Portifólio",
+  title: "Portifólio Frontend",
   description: "Meu protifólio frontend feito em Next js e Tailwind Css",
 };
 

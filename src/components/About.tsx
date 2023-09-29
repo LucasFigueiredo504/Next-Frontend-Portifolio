@@ -7,9 +7,9 @@ export function About() {
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary "
       id="about"
     >
-      <h1 className="text-center mb-28 text-4xl font-bold text-primary">
+      <h2 className="text-center mb-28 text-4xl font-bold text-primary">
         Sobre mim
-      </h1>
+      </h2>
       <div className="flex container mx-auto px-5">
         {/*Left*/}
         <div className="flex items-center w-1/2">
