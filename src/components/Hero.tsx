@@ -7,8 +7,8 @@ export function Hero() {
     <section className="w-full py-36 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
       <div className="flex flex-col-reverse gap-10 items-center container mx-auto px-5 sm:flex-row">
         {/*Left*/}
-        <div className="flex items-center w-1/2">
-          <h1 className="text-5xl font-bold text-primary">
+        <div className="flex items-center flex-1">
+          <h1 className="text-5xl mx-auto font-bold text-primary">
             <span className="text-zinc-200">
               Olá,
               <br />
@@ -19,7 +19,7 @@ export function Hero() {
           </h1>
         </div>
         {/*Right*/}
-        <div className="flex flex-col gap-10 items-center w-1/2 mx-auto">
+        <div className="flex flex-col gap-10 items-center flex-1 mx-auto">
           <Image
             src={picture}
             alt=""
@@ -30,7 +30,7 @@ export function Hero() {
             download
             className="hidden text-2xl font-bold text-terciary rounded-full bg-primary py-5 px-12 border border-transparent sm:block cursor-pointer transition-colors hover:border-primary hover:bg-terciary hover:text-primary"
           >
-            Currículo
+            Baixar CV
           </a>
         </div>
       </div>

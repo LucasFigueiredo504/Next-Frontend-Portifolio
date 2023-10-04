@@ -10,9 +10,9 @@ export function About() {
       <h2 className="text-center mb-28 text-4xl font-bold text-primary">
         Sobre mim
       </h2>
-      <div className="flex flex-col items-center container mx-auto px-5 sm:flex-row">
+      <div className="flex flex-col gap-5 items-center xl:container mx-auto px-5 sm:flex-row">
         {/*Left*/}
-        <div className="flex items-center w-1/2 ">
+        <div className="flex items-center flex-1">
           <Image
             src={LaptopImage}
             alt={"laptop"}
@@ -20,7 +20,7 @@ export function About() {
           />
         </div>
         {/*Right*/}
-        <div className="w-1/2">
+        <div className="flex-1 sm:mt-10">
           <p className="text-lg">
             Sou apaixonado por tecnologia e pelas infinitas possibilidades que
             ela proporciona a todos nós. Iniciei minha trajetória na programação

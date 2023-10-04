@@ -22,7 +22,7 @@ export function Skills() {
         Habilidades
       </h2>
       <div className="flex flex-col items-center gap-7 container mx-auto px-5 sm:flex-row">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center w-1/2 h-fit p-5 my-auto bg-secondary rounded-xl">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center flex-1 h-fit p-5 my-auto bg-secondary rounded-xl">
           {skillsList.map((skill, i) => {
             return (
               <button
@@ -44,7 +44,7 @@ export function Skills() {
           })}
         </div>
         {/**right */}
-        <div className="flex items-center w-1/2 text-lg">
+        <div className="flex items-center flex-1 text-lg">
           <p className="content" id="placeholder">
             Clique em uma{" "}
             <span className="text-primary font-bold">tecnologia</span> para
