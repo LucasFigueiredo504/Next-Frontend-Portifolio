@@ -1,4 +1,4 @@
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, X } from "lucide-react";
 
 export function BurguerMenu() {
   function handleCloseBurguerMenu() {
@@ -18,7 +18,7 @@ export function BurguerMenu() {
             className=" text-primary transition-colors"
             onClick={handleCloseBurguerMenu}
           >
-            <AlignJustify width={42} />
+            <X width={42} />
           </button>
         </li>
         <li className=" cursor-pointer hover:text-primary transition-colors">

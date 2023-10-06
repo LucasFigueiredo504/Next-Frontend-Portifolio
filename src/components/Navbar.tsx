@@ -10,7 +10,7 @@ export function Navbar() {
     burguerMenu?.classList.replace("opacity-0", "opacity-100");
   }
   return (
-    <nav className="w-full py-7 text-zinc-300 fixed border-b-2 border-primary backdrop-blur-md z-10">
+    <nav className="w-full py-7 text-zinc-300 fixed border-b-2 border-primary bg-secondary z-10">
       <div className="flex container mx-auto px-2 items-center justify-between">
         <a href="#" className="text-lg text-primary">
           {"< / >"}

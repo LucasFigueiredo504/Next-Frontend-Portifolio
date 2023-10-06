@@ -78,26 +78,30 @@ export const projectList = [
     image: miniBlog,
     link: "https://lucastheldl.github.io/React-MiniBlog/",
     title: "Mini blog",
-    content: "React, Context, Routing, Firebase, Local storage",
+    technology: ["React", "CSS", "Firebase"],
+    content:
+      "Blog público onde o usuário pode criar, editar e visualizar posts",
   },
   {
     image: shirtShop,
     link: "https://shirt-shop-three.vercel.app/",
     title: "Shirt shop",
-    content: "Next.js, Typescript, Context, Reducer, Stitches CSS, Axios",
+    technology: ["Next.js", "Typescript", "Stripe", "Stitches CSS"],
+    content: "E-commerce de camisetas com carrinho de compras e checkout",
   },
   {
     image: pomodoro,
     link: "https://lucastheldl.github.io/IgnitePomodoro/",
     title: "Pomodoro app",
-    content:
-      "React, Typescript, Context, Reducer, Styled components, Local storage",
+    technology: ["React", "Typescript", "Styled components"],
+    content: "Aplicação de gerenciamento de tarefas usando timer",
   },
   {
     image: booksCollection,
     link: "https://lucastheldl.github.io/BookCollection/",
-    title: "Book's collection",
-    content: "React, Typescript, Sass, Context, Fetch api, Local storage",
+    title: "Book collection",
+    technology: ["React", "Typescript", "Sass", "Context"],
+    content: "Site para buscar e favoritar seus livros",
   } /*,
   {
     image: tmdb,

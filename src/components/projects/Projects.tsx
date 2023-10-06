@@ -19,6 +19,7 @@ export function Projects() {
                 coverImage={project.image}
                 link={project.link}
                 title={project.title}
+                technology={project.technology}
                 content={project.content}
                 key={i}
               />
