@@ -1,7 +1,13 @@
+"use client";
 import Image from "next/image";
 import LaptopImage from "../assets/laptop.png";
+import { useIsVisible } from "@/hook/useIsVisible";
+import { useRef } from "react";
 
 export function About() {
+  const ref1 = useRef(null);
+  const isVisible1 = useIsVisible(ref1);
+
   return (
     <section
       className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary "
@@ -16,12 +22,19 @@ export function About() {
           <Image
             src={LaptopImage}
             alt={"laptop"}
-            className="w-[450px] h-auto"
+            className="w-[450px] h-auto mx-auto"
           />
         </div>
         {/*Right*/}
-        <div className="flex-1 sm:mt-10">
-          <p className="text-lg">
+        <div
+          className={`transition-opacity ease-in duration-700 ${
+            isVisible1
+              ? "opacity-100 flex-1 sm:mt-10"
+              : "opacity-0 flex-1 sm:mt-10"
+          }`}
+          ref={ref1}
+        >
+          <p className="text-lg text-justify px-10">
             Sou apaixonado por tecnologia e pelas infinitas possibilidades que
             ela proporciona a todos nós. Iniciei minha trajetória na programação
             no ano de 2018, focado no desenvolvimento de jogos em C# na

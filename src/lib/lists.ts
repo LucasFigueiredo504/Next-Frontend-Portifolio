@@ -100,7 +100,7 @@ export const projectList = [
     image: booksCollection,
     link: "https://lucastheldl.github.io/BookCollection/",
     title: "Book collection",
-    technology: ["React", "Typescript", "Sass", "Context"],
+    technology: ["React", "Typescript", "Sass"],
     content: "Site para buscar e favoritar seus livros",
   } /*,
   {

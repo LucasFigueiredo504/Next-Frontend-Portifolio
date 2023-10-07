@@ -1,0 +1,21 @@
+.animate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.5rem solid;
+  animation: typing 1s steps(40, end), cursor 0.4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import picture from "../assets/picture.jpg";
-import { Paperclip } from "lucide-react";
+import "./Hero.css";
 
 export function Hero() {
   return (
@@ -8,14 +8,12 @@ export function Hero() {
       <div className="flex flex-col-reverse gap-10 items-center container mx-auto px-5 sm:flex-row">
         {/*Left*/}
         <div className="flex items-center flex-1">
-          <h1 className="text-5xl mx-auto font-bold text-primary">
-            <span className="text-zinc-200">
-              Olá,
-              <br />
-              me chamo
-            </span>
+          <h1 className="text-5xl mx-auto font-bold text-zinc-200">
+            Olá,
             <br />
-            Lucas Emanoel {"</>"}
+            me chamo
+            <br />
+            <p className="text-primary animate">Lucas Emanoel {"</>"}</p>
           </h1>
         </div>
         {/*Right*/}

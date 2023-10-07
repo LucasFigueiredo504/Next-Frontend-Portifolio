@@ -27,6 +27,18 @@ module.exports = {
         smartphone: "640px",
         // => @media (min-width: 640px) { ... }
       },
+      keyframes: {
+        cursor: {
+          "50%": { borderColor: "transparent" },
+        },
+        typing: {
+          from: { width: "0" },
+        },
+      },
+      animation: {
+        cursor: "0.4s step-end infinite alternate",
+        typing: "2s steps()",
+      },
     },
   },
   plugins: [],
