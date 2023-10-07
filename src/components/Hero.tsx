@@ -7,8 +7,8 @@ export function Hero() {
     <section className="w-full py-36 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary">
       <div className="flex flex-col-reverse gap-10 items-center container mx-auto px-5 sm:flex-row">
         {/*Left*/}
-        <div className="flex items-center flex-1 px-5 sm:px-0">
-          <h1 className="text-5xl mx-auto font-bold text-zinc-200">
+        <div className="flex items-center flex-1">
+          <h1 className="text-4xl sm:text-5xl mx-auto font-bold text-zinc-200">
             Olá,
             <br />
             me chamo

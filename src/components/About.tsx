@@ -34,7 +34,7 @@ export function About() {
           }`}
           ref={ref1}
         >
-          <p className="text-lg text-justify px-10">
+          <p className="text-lg text-justify sm:px-10">
             Sou apaixonado por tecnologia e pelas infinitas possibilidades que
             ela proporciona a todos nós. Iniciei minha trajetória na programação
             no ano de 2018, focado no desenvolvimento de jogos em C# na
