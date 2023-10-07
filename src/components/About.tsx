@@ -39,14 +39,14 @@ export function About() {
             ela proporciona a todos nós. Iniciei minha trajetória na programação
             no ano de 2018, focado no desenvolvimento de jogos em C# na
             plataforma Unity. No entanto, em 2021, despertei um grande interesse
-            pelo Desenvolvimento Web, o que me levou a aprofundar-me nessa área
-            por meio da criação de projetos, realização de cursos e estudos
-            independentes.
+            pelo <strong className="text-primary">Desenvolvimento Web</strong>,
+            o que me levou a aprofundar-me nessa área por meio da criação de
+            projetos, realização de cursos e estudos independentes.
             <br />
             <br />
-            No momento, possuo conhecimentos em tecnologias voltadas para o
-            Front-End, assim como domino habilidades em design utilizando o
-            Photoshop.
+            No momento, possuo conhecimentos em tecnologias voltadas para o{" "}
+            <strong className="text-primary">Front-End</strong>, assim como
+            domino habilidades em design utilizando o Photoshop.
           </p>
         </div>
       </div>
