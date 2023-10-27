@@ -101,7 +101,7 @@ export const projectList = [
     link: "https://lucastheldl.github.io/BookCollection/",
     title: "Book collection",
     technology: ["React", "Typescript", "Sass"],
-    content: "Site para buscar e favoritar seus livros",
+    content: "Site para buscar e favoritar seus livros usando google Books API",
   } /*,
   {
     image: tmdb,
