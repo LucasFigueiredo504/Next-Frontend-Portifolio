@@ -15,8 +15,7 @@ export function Footer() {
           lucasfigueiredo.emanoel@gmail.com
         </a>
         <a
-          href="http://www.linkedin.com/in/
-        lucas-emanoel-figueiredo-da-silva
+          href="https://www.linkedin.com/in/lucas-emanoel-figueiredo-da-silva/
         "
           target="blank"
           className="flex gap-2 p-3 items-center justify-center text-lg underline transition-colors hover:text-primary"
