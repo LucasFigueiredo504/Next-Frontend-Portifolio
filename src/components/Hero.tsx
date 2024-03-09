@@ -11,7 +11,7 @@ export function Hero() {
       <div className="flex flex-col-reverse gap-10 items-center container mx-auto px-5 sm:flex-row">
         {/*Left*/}
         <div className="flex items-center flex-1 z-20">
-          <h1 className="text-6xl sm:text-6xl mx-auto my-20 font-bold font-sans text-zinc-200 ">
+          <h1 className="text-3xl sm:text-6xl mx-auto my-20 font-bold font-sans text-zinc-200 ">
             <span className="flex items-center gap-5">
               Lucas Emanoel
               <a

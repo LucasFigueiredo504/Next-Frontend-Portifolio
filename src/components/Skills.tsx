@@ -15,15 +15,16 @@ export function Skills() {
 
   return (
     <section
-      className="animate-[wiggle_1s_ease-in-out_infinite] flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-transparent via-terciary to-secondary relative overflow-hidden"
+      className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-transparent via-terciary to-secondary relative overflow-hidden"
       id="skills"
     >
-      <div className=" after:h-96 after:w-96 after:absolute after:-top-10 after:-right-10 after:bg-gradient-to-bl after:from-terciary after:via-secondary after:to-secondary after:rounded-[50%]" />
-      <h2 className="text-center mb-20 text-4xl font-bold text-primary">
+      <div className=" after:h-96 after:w-96 after:absolute after:-top-10 after:-right-10 after:bg-gradient-to-bl after:from-terciary after:via-secondary after:to-secondary after:rounded-[50%] after:z-10" />
+
+      <h2 className=" text-center mb-20 text-4xl font-bold text-primary z-20 relative">
         Habilidades
       </h2>
       <div className="flex flex-col items-center gap-7 container mx-auto px-5 sm:flex-row">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center flex-1 h-fit p-5 my-auto bg-secondary rounded-xl">
+        <div className="z-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center flex-1 h-fit p-5 my-auto bg-secondary rounded-xl border-2 border-terciary sm:border-0">
           {skillsList.map((skill, i) => {
             return (
               <button
