@@ -4,7 +4,7 @@ interface TechButtonProps {
 
 export function TechButton({ tech }: TechButtonProps) {
   return (
-    <div className="rounded-md bg-zinc-900 text-zinc-300 p-[4px] text-[0.7rem] font-bold">
+    <div className="rounded-md bg-primary text-slate-800 p-[4px] text-[0.7rem] font-bold">
       {tech}
     </div>
   );

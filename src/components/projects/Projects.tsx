@@ -12,7 +12,7 @@ export function Projects() {
         Projetos
       </h2>
       <div className="flex flex-col items-center container mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {projectList.map((project, i) => {
             return (
               <ProjectCard
@@ -31,7 +31,7 @@ export function Projects() {
           target="blank"
           className="flex justify-center"
         >
-          <p className="flex items-center gap-1 mt-20 text-xl font-bold text-zinc-200 cursor-pointer transition-colors hover:text-primary">
+          <p className="flex items-center gap-1 mt-20 text-xl font-bold text-terciary cursor-pointer transition-colors hover:text-primary">
             <ArrowUpLeft size={30} /> Repositórios Github
           </p>
         </a>

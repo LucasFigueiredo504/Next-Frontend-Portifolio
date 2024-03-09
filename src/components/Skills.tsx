@@ -15,9 +15,10 @@ export function Skills() {
 
   return (
     <section
-      className="animate-[wiggle_1s_ease-in-out_infinite] flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-terciary via-terciary to-secondary"
+      className="animate-[wiggle_1s_ease-in-out_infinite] flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-transparent via-terciary to-secondary relative overflow-hidden"
       id="skills"
     >
+      <div className=" after:h-96 after:w-96 after:absolute after:-top-10 after:-right-10 after:bg-gradient-to-bl after:from-terciary after:via-secondary after:to-secondary after:rounded-[50%]" />
       <h2 className="text-center mb-20 text-4xl font-bold text-primary">
         Habilidades
       </h2>

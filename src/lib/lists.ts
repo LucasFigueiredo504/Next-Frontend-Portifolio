@@ -2,10 +2,11 @@
 import PokeApi from "../assets/Pokeapi.jpg";
 import tmdb from "../assets/tmdb.png";
 import weather from "../assets/weatherApp.jpg";
-import pomodoro from "../assets/1681137327493.jpg";
+import pomodoro from "../assets/PomodoroApp.png";
 import shirtShop from "../assets/shirtShop.png";
-import miniBlog from "../assets/miniBog.jpg";
+import miniBlog from "../assets/MiniBlog.png";
 import booksCollection from "../assets/booksCollecion.jpg";
+import githubBlog from "../assets/GithubBlog.png";
 import placeholder from "../assets/reactLogo.jpg";
 //skills
 import html from "../assets/html.png";
@@ -77,7 +78,7 @@ export const projectList = [
   {
     image: miniBlog,
     link: "https://lucastheldl.github.io/React-MiniBlog/",
-    title: "Mini blog",
+    title: "Mini Blog",
     technology: ["React", "CSS", "Firebase"],
     content:
       "Blog público onde o usuário pode criar, editar e visualizar posts",
@@ -85,17 +86,24 @@ export const projectList = [
   {
     image: shirtShop,
     link: "https://shirt-shop-three.vercel.app/",
-    title: "Shirt shop",
+    title: "Loja de Camisas",
     technology: ["Next.js", "Typescript", "Stripe", "Stitches CSS"],
     content: "E-commerce de camisetas com carrinho de compras e checkout",
   },
   {
     image: pomodoro,
     link: "https://lucastheldl.github.io/IgnitePomodoro/",
-    title: "Pomodoro app",
+    title: "Timer Pomodoro",
     technology: ["React", "Typescript", "Styled components"],
     content: "Aplicação de gerenciamento de tarefas usando timer",
   },
+  {
+    image: githubBlog,
+    link: "https://lucastheldl.github.io/GithubBlog/",
+    title: "Tech Blog Github",
+    technology: ["React", "Typescript", "CSS modules"],
+    content: "Blog para documentar minhas postagens de tecnologia",
+  } /*,
   {
     image: booksCollection,
     link: "https://lucastheldl.github.io/BookCollection/",

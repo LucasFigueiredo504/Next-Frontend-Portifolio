@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: "var(--font-roboto)",
+        sans: ["Roboto", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -16,9 +16,9 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: "#Ffce00",
-        secondary: "#121214",
-        terciary: "#29292E",
+        primary: "#7dbfff",
+        secondary: "#004E99",
+        terciary: "#051A2D",
       },
       grayscale: {
         100: "100%",
