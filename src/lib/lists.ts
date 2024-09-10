@@ -4,7 +4,7 @@ import tmdb from "../assets/tmdb.png";
 import weather from "../assets/weatherApp.jpg";
 import pomodoro from "../assets/PomodoroApp.png";
 import shirtShop from "../assets/shirtShop.png";
-import miniBlog from "../assets/MiniBlog.png";
+import cardBattle from "../assets/cardBattle.png";
 import booksCollection from "../assets/booksCollecion.jpg";
 import githubBlog from "../assets/GithubBlog.png";
 import placeholder from "../assets/reactLogo.jpg";
@@ -76,12 +76,11 @@ export const skillsList = [
 
 export const projectList = [
   {
-    image: miniBlog,
-    link: "https://lucastheldl.github.io/React-MiniBlog/",
-    title: "Mini Blog",
-    technology: ["React", "CSS", "Firebase"],
-    content:
-      "Blog público onde o usuário pode criar, editar e visualizar posts",
+    image: cardBattle,
+    link: "https://lucastheldl.github.io/CardBattle/",
+    title: "Card Battle",
+    technology: ["React", "Styled components", "Typescript", "Firebase"],
+    content: "Jogo de batalha entre cartas colecionáveis",
   },
   {
     image: shirtShop,
