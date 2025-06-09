@@ -5,49 +5,65 @@ import { useIsVisible } from "@/hook/useIsVisible";
 import { useRef } from "react";
 
 export function About() {
-  const ref1 = useRef(null);
-  const isVisible1 = useIsVisible(ref1);
+  const sectionRef = useRef(null);
+  const isVisible = useIsVisible(sectionRef);
 
   return (
     <section
-      className="flex-col w-full py-32 border-b-2 border-primary bg-gradient-to-r from-secondary via-secondary to-terciary "
+      ref={sectionRef}
+      className="w-full py-24 md:py-32 bg-background text-primary"
       id="about"
     >
-      <h2 className="text-center mb-28 text-4xl font-bold text-primary">
-        Sobre mim
-      </h2>
-      <div className="flex flex-col gap-5 items-center xl:container mx-auto px-5 sm:flex-row">
-        {/*Left*/}
-        <div className="flex items-center flex-1">
-          <Image
-            src={LaptopImage}
-            alt={"laptop"}
-            className="w-[450px] h-auto mx-auto"
-          />
+      <div
+        className={`container mx-auto px-6 transition-all duration-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
         </div>
-        {/*Right*/}
+
         <div
-          className={`transition-opacity ease-in duration-700 ${
-            isVisible1
-              ? "opacity-100 flex-1 sm:mt-10"
-              : "opacity-0 flex-1 sm:mt-10"
+          className={`flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 transition-all ease-out duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
-          ref={ref1}
         >
-          <p className="text-lg text-justify sm:px-10">
-            Sou apaixonado por tecnologia e pelas infinitas possibilidades que
-            ela proporciona a todos nós. Iniciei minha trajetória na programação
-            no ano de 2018, focado no desenvolvimento de jogos em C# na
-            plataforma Unity. No entanto, em 2021, despertei um grande interesse
-            pelo <strong className="text-primary">Desenvolvimento Web</strong>,
-            o que me levou a aprofundar-me nessa área por meio da criação de
-            projetos, realização de cursos e estudos independentes.
-            <br />
-            <br />
-            No momento, possuo conhecimentos em tecnologias voltadas para o{" "}
-            <strong className="text-primary">Front-End</strong>, assim como
-            domino habilidades em design utilizando o Photoshop.
-          </p>
+          {/* Left: Image */}
+          <div className="flex-shrink-0">
+            <Image
+              src={LaptopImage}
+              alt="Laptop with code"
+              className="w-[350px] lg:w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+            />
+          </div>
+
+          {/* Right: Text Content */}
+          <div className="max-w-2xl text-lg text-slate-300 text-left space-y-4 leading-8">
+            <p>
+              My journey into technology began in 2018, driven by a passion for
+              the infinite possibilities it unlocks. I started with C# game
+              development in Unity, but my curiosity led me to the dynamic world
+              of{" "}
+              <strong className="text-accent font-semibold">
+                Web Development
+              </strong>{" "}
+              in 2021.
+            </p>
+            <p>
+              Since then, I've been honing my skills through dedicated projects,
+              continuous learning, and independent study. My expertise is
+              centered on modern{" "}
+              <strong className="text-accent font-semibold">
+                Frontend Technologies
+              </strong>
+              , where I focus on creating seamless and engaging user
+              experiences. I also bring a keen eye for design, frequently using
+              tools like Photoshop to bridge the gap between vision and reality.
+            </p>
+          </div>
         </div>
       </div>
     </section>
