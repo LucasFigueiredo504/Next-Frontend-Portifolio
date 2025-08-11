@@ -7,7 +7,7 @@ export function Footer() {
       id="contact"
     >
       <div className="container mx-auto px-6 py-16 flex flex-col items-center gap-8 text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-primary">
+        <h2 className="text-3xl font-light tracking-tight text-primary">
           Get In Touch
         </h2>
         <p className="max-w-md text-slate-400">

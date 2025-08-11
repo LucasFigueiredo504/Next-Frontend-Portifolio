@@ -4,17 +4,17 @@ import { Github, Linkedin } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center bg-background text-primary overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary overflow-hidden">
       {/* Aurora Background Effect */}
-      <div className="absolute top-0 left-0 w-full h-full -z-1">
-        <div className="absolute top-1/2 left-1/2 w-[120vh] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
-        <div className="absolute top-1/2 left-1/2 w-[90vh] h-[90vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
+      <div className="absolute inset-0 -z-1">
+        <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
+        <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
       </div>
 
-      <div className="container mx-auto max-w-6xl z-10 flex flex-col md:flex-row justify-center items-center gap-12">
+      <div className="container mx-auto max-w-6xl z-10 flex flex-col md:flex-row justify-center items-center gap-12 py-20">
         {/* Left: Text Content */}
         <div className="flex flex-col gap-4 text-center md:text-left items-center md:items-start">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight">
             Lucas Emanoel
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
@@ -48,7 +48,7 @@ export function Hero() {
         {/* Right: Image and CTA */}
         <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
           <Image
-            src={picture}
+            src={picture || "/placeholder.svg"}
             alt="Lucas Emanoel"
             className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-accent/50 shadow-lg"
           />

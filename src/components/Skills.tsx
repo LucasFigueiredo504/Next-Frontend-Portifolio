@@ -13,7 +13,7 @@ export function Skills() {
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight">
             My Tech Stack
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
