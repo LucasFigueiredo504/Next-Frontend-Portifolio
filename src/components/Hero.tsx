@@ -1,5 +1,5 @@
 import Image from "next/image";
-import picture from "../assets/picture.jpeg";
+import picture from "../assets/picture.webp";
 import { Github, Linkedin } from "lucide-react";
 
 export function Hero() {
@@ -11,14 +11,14 @@ export function Hero() {
         <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
       </div>
 
-      <div className="container mx-auto max-w-6xl z-10 flex flex-col md:flex-row justify-center items-center gap-12 py-20">
+      <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row justify-center items-center gap-12 py-20 px-4">
         {/* Left: Text Content */}
         <div className="flex flex-col gap-4 text-center md:text-left items-center md:items-start">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight">
             Lucas Emanoel
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
-            Desenvolvedor Fullstack & Game dev {"</>"}
+            Desenvolvedor Fullstack & Game dev
           </p>
           <p className="max-w-xl text-lg text-slate-300 mt-2">
             I build elegant and responsive web applications, turning complex

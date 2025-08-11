@@ -24,53 +24,52 @@ import node from "../assets/node.png";
 
 export const skillsList = [
   {
-    image: html,
-    title: "html",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "JavaScript",
+    category: "Gamedev",
+    description: "Dynamic programming language for web development",
   },
   {
-    image: CSS,
-    title: "css",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "TypeScript",
+    category: "webdev",
+    description: "Typed superset of JavaScript for better development",
   },
   {
-    image: javascript,
-    title: "javascript",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "Tailwind CSS",
+    category: "webdev",
+    description: "Utility-first CSS framework for rapid UI development",
   },
   {
-    image: SCSS,
-    title: "sass",
-  },
-
-  {
-    image: typescript,
-    title: "typescript",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "Git",
+    category: "webdev",
+    description: "Distributed version control system",
   },
   {
-    image: Bootstrap,
-    title: "bootstrap",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "React",
+    category: "webdev",
+    description: "JavaScript library for building user interfaces",
   },
   {
-    image: Tailwind,
-    title: "tailwind",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "React Native",
+    category: "webdev",
+    description: "Framework for building native mobile apps with React",
   },
   {
-    image: git,
-    title: "git",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "Next.js",
+    category: "webdev",
+    description: "React framework for production-ready applications",
   },
   {
-    image: react,
-    title: "react",
-  },
-  {
-    image: reactNative,
-    title: "reactNative",
-  },
-  {
-    image: next,
-    title: "nextJs",
-  },
-  {
-    image: node,
-    title: "node",
+    image: "/placeholder.svg?height=64&width=64",
+    title: "Node.js",
+    category: "webdev",
+    description: "JavaScript runtime for server-side development",
   },
 ];
 
