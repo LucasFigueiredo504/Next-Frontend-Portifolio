@@ -5,22 +5,9 @@ import { skillsList } from "@/lib/lists";
 
 export function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<any>(null);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    "all",
-    ...new Set(skillsList.map((skill) => skill.category || "webdev")),
-  ];
-
-  const filteredSkills =
-    selectedCategory === "all"
-      ? skillsList
-      : skillsList.filter(
-          (skill) => (skill.category || "webdev") === selectedCategory
-        );
 
   return (
-    <section className="w-full py-24 md:py-32  text-white" id="skills">
+    <section className="w-full py-24 md:py-32 text-white" id="skills">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
@@ -33,108 +20,60 @@ export function Skills() {
           <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
         </div>
 
-        {/* Category Filter */}
-        <div className="flex justify-center mb-16">
-          <div className="inline-flex items-center p-1 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 capitalize
-                  ${
-                    selectedCategory === category
-                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Skills Grid */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {filteredSkills.map((skill, index) => (
-              <div
-                key={skill.title}
-                className="group relative"
-                onMouseEnter={() => setHoveredSkill(skill)}
-                onMouseLeave={() => setHoveredSkill(null)}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Skill Card */}
-                <div
-                  className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm 
-                  hover:bg-white/10 hover:border-accent/90 hover:shadow-2xl hover:shadow-blue-500/10
-                  transition-all duration-500 ease-out group-hover:scale-105
-                  opacity-100 animate-fade-in-up"
-                >
-                  {/* Skill Icon */}
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="relative w-16 h-16 transition-transform duration-300 group-hover:scale-110">
-                      <Image
-                        src={skill.image || "/placeholder.svg"}
-                        alt={skill.title}
-                        width={64}
-                        height={64}
-                        className="w-full h-full object-contain filter group-hover:drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Skill Name */}
-                  <h3
-                    className="text-center text-sm font-semibold text-slate-200 group-hover:text-accent
-                    transition-colors duration-300"
-                  >
-                    {skill.title}
-                  </h3>
-
-                  {/* Hover Glow Effect */}
-                  <div
-                    className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-blue-500/20 
-                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-
-                {/* Floating Tooltip */}
-                {hoveredSkill?.title === skill.title && (
-                  <div
-                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-50
-                    opacity-100 animate-fade-in"
-                  >
-                    <div
-                      className="bg-slate-900 border border-blue-500/20 rounded-lg px-4 py-3 max-w-xs
-                      shadow-2xl shadow-blue-500/20 backdrop-blur-md"
-                    >
-                      <div className="text-accent font-semibold text-sm mb-1">
-                        {skill.title}
-                      </div>
-                      <div className="text-slate-300 text-xs leading-relaxed">
-                        {skill.description}
-                      </div>
-                      {/* Tooltip Arrow */}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2">
-                        <div
-                          className="w-0 h-0 border-l-4 border-r-4 border-t-4 
-                          border-transparent border-t-slate-900"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {skillsList.map((skill, index) => (
+            <div
+              key={index}
+              className="group relative bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-8 hover:border-slate-600 transition-all duration-500 hover:transform hover:scale-105"
+              onMouseEnter={() => setHoveredSkill(skill)}
+              onMouseLeave={() => setHoveredSkill(null)}
+            >
+              {/* Skill Icon */}
+              <div className="w-16 h-16 mx-auto mb-6 relative overflow-hidden rounded-xl bg-slate-800/50 flex items-center justify-center group-hover:bg-accent/20 transition-all duration-300">
+                <Image
+                  src={skill.image}
+                  alt={skill.title}
+                  width={40}
+                  height={40}
+                  className="object-contain filter group-hover:brightness-110 transition-all duration-300"
+                />
               </div>
-            ))}
-          </div>
+
+              {/* Skill Title */}
+              <h3 className="text-xl font-semibold text-center mb-3 group-hover:text-accent transition-colors duration-300">
+                {skill.title}
+              </h3>
+
+              {/* Skill Description */}
+              <p className="text-slate-400 text-center text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                {skill.description}
+              </p>
+
+              {/* Hover Effect Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-2xl border border-accent/20 animate-pulse" />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-10 w-40 h-40 bg-blue-500/3 rounded-full blur-3xl" />
-        </div>
+        {/* Hovered Skill Detail */}
+        {hoveredSkill && (
+          <div className="mt-16 text-center">
+            <div className="bg-slate-900/70 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 max-w-2xl mx-auto transform animate-fadeIn">
+              <h4 className="text-2xl font-semibold text-accent mb-4">
+                {hoveredSkill.title}
+              </h4>
+              <p className="text-slate-300 text-lg leading-relaxed">
+                {hoveredSkill.description}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

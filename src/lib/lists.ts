@@ -13,37 +13,31 @@ export const skillsList = [
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "JavaScript",
-    category: "Gamedev",
     description: "Dynamic programming language for web development",
   },
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "TypeScript",
-    category: "webdev",
     description: "Typed superset of JavaScript for better development",
   },
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "Tailwind CSS",
-    category: "webdev",
     description: "Utility-first CSS framework for rapid UI development",
   },
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "Git",
-    category: "webdev",
     description: "Distributed version control system",
   },
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "React",
-    category: "webdev",
     description: "JavaScript library for building user interfaces",
   },
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "React Native",
-    category: "webdev",
     description: "Framework for building native mobile apps with React",
   },
   {
@@ -55,8 +49,19 @@ export const skillsList = [
   {
     image: "/placeholder.svg?height=64&width=64",
     title: "Node.js",
-    category: "webdev",
     description: "JavaScript runtime for server-side development",
+  },
+  {
+    image: "/placeholder.svg?height=64&width=64",
+    title: "PostgreSQL",
+    description:
+      "An advanced open-source relational database known for reliability, scalability, and SQL compliance.",
+  },
+  {
+    image: "/placeholder.svg?height=64&width=64",
+    title: "Unity Engine",
+    description:
+      "A powerful cross-platform game engine using C# for building 2D, 3D, and VR/AR experiences.",
   },
 ];
 
