@@ -4,7 +4,7 @@ import { Github, Linkedin } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary">
       {/* Aurora Background Effect */}
       <div className="absolute inset-0 -z-1">
         <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />

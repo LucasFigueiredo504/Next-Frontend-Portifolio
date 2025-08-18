@@ -8,19 +8,6 @@ import cardBattle from "../assets/cardBattle.png";
 import booksCollection from "../assets/booksCollecion.jpg";
 import githubBlog from "../assets/GithubBlog.png";
 import placeholder from "../assets/reactLogo.jpg";
-//skills
-import html from "../assets/html.png";
-import CSS from "../assets/css.png";
-import SCSS from "../assets/sass.png";
-import Bootstrap from "../assets/bootstrap.png";
-import Tailwind from "../assets/Tailwind_CSS_Logo.png";
-import git from "../assets/git.png";
-import javascript from "../assets/javascript.png";
-import typescript from "../assets/Typescript_logo_2020.svg.png";
-import react from "../assets/react.png";
-import reactNative from "../assets/react.png";
-import next from "../assets/next.png";
-import node from "../assets/node.png";
 
 export const skillsList = [
   {
@@ -83,10 +70,10 @@ export const projectList = [
   },
   {
     image: shirtShop,
-    link: "https://shirt-shop-three.vercel.app/",
-    title: "Loja de Camisas",
-    technology: ["Next.js", "Typescript", "Stripe", "Stitches CSS"],
-    content: "E-commerce de camisetas com carrinho de compras e checkout",
+    link: "https://master-tables.vercel.app/",
+    title: "RPG Manager",
+    technology: ["Next.js", "Typescript", "Drizzle", "Node.js", "Tailwind"],
+    content: "Website para gerenciamento de rpg com tabelas dinâmicas",
   },
   {
     image: pomodoro,
