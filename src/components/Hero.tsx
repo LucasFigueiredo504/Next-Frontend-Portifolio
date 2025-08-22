@@ -47,11 +47,13 @@ export function Hero() {
 
         {/* Right: Image and CTA */}
         <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
-          <Image
-            src={picture || "/placeholder.svg"}
-            alt="Lucas Emanoel"
-            className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-accent/50 shadow-lg"
-          />
+          <div className="overflow-hidden rounded-full border-accent/50 border-2">
+            <Image
+              src={picture || "/placeholder.svg"}
+              alt="Lucas Emanoel"
+              className="w-64 h-64 md:w-80 md:h-80  object-cover "
+            />
+          </div>
           <a
             href="/files/curriculo.pdf"
             download
