@@ -35,7 +35,6 @@ export function ProjectCard({
           className="w-full transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-
       {/* Text Content */}
       <div className="flex flex-col gap-3">
         <h3 className="flex items-center gap-2 text-xl font-bold text-primary group-hover:text-accent transition-colors">
@@ -44,12 +43,11 @@ export function ProjectCard({
         </h3>
         <p className="text-slate-400 text-sm leading-relaxed">{content}</p>
       </div>
-
       {/* Tech Tags */}
       <div className="flex justify-start gap-2 flex-wrap pt-2 border-t border-white/10">
         {technology.map((tech) => (
           // Assuming TechButton renders a styled badge
-          <TechButton key={tech} tech={tech} />
+          (<TechButton key={tech} tech={tech} />)
         ))}
       </div>
     </a>
