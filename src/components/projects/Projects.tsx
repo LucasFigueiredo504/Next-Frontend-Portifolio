@@ -7,7 +7,7 @@ export function Projects() {
     <section className="relative w-full py-24 md:py-32 " id="projects">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-primary">
+          <h2 className="text-4xl font-light tracking-tight text-primary">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />

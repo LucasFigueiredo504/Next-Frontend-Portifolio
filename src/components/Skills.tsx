@@ -8,15 +8,10 @@ export function Skills() {
 
   return (
     <section className="w-full py-24 md:py-32 text-white" id="skills">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6">
-            My Tech Stack
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8">
-            Technologies I work with to bring ideas to life
-          </p>
+          <h2 className="text-4xl font-light tracking-tight mb-6">My Stack</h2>
           <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
         </div>
 

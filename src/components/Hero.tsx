@@ -11,14 +11,14 @@ export function Hero() {
         <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
       </div>
 
-      <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row justify-center items-center gap-12 py-20 px-4">
+      <div className="container mx-auto max-w-5xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-4">
         {/* Left: Text Content */}
-        <div className="flex flex-col gap-4 text-center md:text-left items-center md:items-start">
+        <div className="flex flex-col gap-4 text-center md:text-left md:items-start">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight">
             Lucas Emanoel
           </h1>
-          <p className="text-2xl md:text-3xl font-medium text-accent">
-            Desenvolvedor Fullstack & Game dev
+          <p className="text-2xl md:text-5xl font-medium text-accent">
+            Fullstack & Game dev
           </p>
           <p className="max-w-xl text-lg text-slate-300 mt-2">
             I build elegant and responsive web applications, turning complex
@@ -46,7 +46,7 @@ export function Hero() {
         </div>
 
         {/* Right: Image and CTA */}
-        <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
+        {/* <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
           <div className="overflow-hidden rounded-full border-accent/50 border-2">
             <Image
               src={picture || "/placeholder.svg"}
@@ -61,7 +61,7 @@ export function Hero() {
           >
             Download CV
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export function About() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-24 md:py-32 bg-background text-primary"
+      className="w-full max-w-6xl py-24 md:py-32 bg-background text-primary"
       id="about"
     >
       <div
@@ -20,15 +20,13 @@ export function About() {
         }`}
       >
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight">
-            About Me
-          </h2>
+          <h2 className="text-4xl font-light tracking-tight">About Me</h2>
           <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
         </div>
 
         <div className="flex flex-col gap-24">
           <div
-            className={`flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 transition-all ease-out duration-1000 ${
+            className={`grid grid-cols-2 items-center justify-center gap-8 transition-all ease-out duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
@@ -70,21 +68,12 @@ export function About() {
             </div>
           </div>{" "}
           <div
-            className={`flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-16 transition-all ease-out duration-1000 ${
+            className={`grid grid-cols-2 items-center justify-center gap-8 transition-all ease-out duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
             }`}
           >
-            {/* Left: Image */}
-            <div className="flex-shrink-0">
-              <Image
-                src={LaptopImage}
-                alt="Laptop with code"
-                className="w-[350px] lg:w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
-              />
-            </div>
-
             {/* Right: Text Content */}
             <div className="max-w-2xl text-lg text-slate-300 text-left space-y-4 leading-8">
               <p>
@@ -109,6 +98,15 @@ export function About() {
                 using tools like Photoshop to bridge the gap between vision and
                 reality.
               </p>
+            </div>
+
+            {/* Left: Image */}
+            <div className="flex-shrink-0">
+              <Image
+                src={LaptopImage}
+                alt="Laptop with code"
+                className="w-[350px] lg:w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+              />
             </div>
           </div>
         </div>

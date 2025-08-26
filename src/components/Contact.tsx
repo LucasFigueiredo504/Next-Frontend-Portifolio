@@ -80,10 +80,7 @@ export function Contact() {
           <h2 className="text-4xl font-light tracking-tight text-primary mb-4">
             Let's Work Together
           </h2>
-          <p className="max-w-2xl mx-auto text-slate-400">
-            Ready to start your next project? Send me a message and let's
-            discuss how we can bring your ideas to life.
-          </p>
+          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Two Column Layout */}

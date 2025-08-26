@@ -47,7 +47,7 @@ export function ProjectCard({
       <div className="flex justify-start gap-2 flex-wrap pt-2 border-t border-white/10">
         {technology.map((tech) => (
           // Assuming TechButton renders a styled badge
-          (<TechButton key={tech} tech={tech} />)
+          <TechButton key={tech} tech={tech} />
         ))}
       </div>
     </a>
