@@ -7,12 +7,18 @@ export function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<any>(null);
 
   return (
-    <section className="w-full py-24 md:py-32 text-white" id="skills">
+    <section className="relative w-full py-24 md:py-32 text-white" id="skills">
+      <div className="absolute inset-0 -z-1">
+        <div className="absolute -bottom-20 right-1/2 w-[80vw] h-[90vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
+        <div className="absolute -bottom-20 right-1/2 w-[70vw] h-[80vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
+      </div>
       <div className="container mx-auto max-w-6xl px-6">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-light tracking-tight mb-6">My Stack</h2>
-          <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+        <div className="mb-20">
+          <h2 className="text-4xl font-light tracking-tight mb-6">
+            Tech Stack
+          </h2>
+          <div className="w-24 h-1 bg-accent rounded-full" />
         </div>
 
         {/* Skills Grid */}

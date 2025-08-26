@@ -6,15 +6,24 @@ export function Projects() {
   return (
     <section className="relative w-full py-24 md:py-32 " id="projects">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-light tracking-tight text-primary">
-            Featured Projects
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 mx-auto px-4 gap-4">
+          <div className="font-3xl">
+            <div className="mb-16 sticky top-10">
+              <h2 className="text-4xl font-light tracking-tight text-primary">
+                Featured Projects
+              </h2>
+              <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-16 mt-24">
+            <div className="w-full h-96 bg-white/10 rounded-lg"></div>
+            <div className="w-full h-96 bg-white/10 rounded-lg"></div>
+            <div className="w-full h-96 bg-white/10 rounded-lg"></div>
+            <div className="w-full h-96 bg-white/10 rounded-lg"></div>
+          </div>
         </div>
-
         {/* Project Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 gap-4">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 gap-4">
           {projectList.map((project, i) => (
             <ProjectCard
               coverImage={project.image}
@@ -25,10 +34,10 @@ export function Projects() {
               key={i}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* GitHub CTA Button */}
-        <div className="text-center mt-20">
+        {/* <div className="text-center mt-20">
           <a
             href="https://github.com/lucastheldl"
             target="_blank"
@@ -40,7 +49,7 @@ export function Projects() {
             View All on GitHub
             <ArrowRight size={20} />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

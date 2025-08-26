@@ -3,6 +3,7 @@ import Image from "next/image";
 import LaptopImage from "../assets/laptop.png";
 import { useIsVisible } from "@/hook/useIsVisible";
 import { useRef } from "react";
+import picture from "../assets/picture.webp";
 
 export function About() {
   const sectionRef = useRef(null);
@@ -19,9 +20,9 @@ export function About() {
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <h2 className="text-4xl font-light tracking-tight">About Me</h2>
-          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
+          <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
         </div>
 
         <div className="flex flex-col gap-24">
@@ -34,11 +35,22 @@ export function About() {
           >
             {/* Left: Image */}
             <div className="flex-shrink-0">
-              <Image
-                src={LaptopImage}
-                alt="Laptop with code"
-                className="w-[350px] lg:w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
-              />
+              <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
+                <div className="overflow-hidden rounded-2xl">
+                  <Image
+                    src={picture || "/placeholder.svg"}
+                    alt="Lucas Emanoel"
+                    className="w-96 h-64 md:w-96 md:h-80  object-cover "
+                  />
+                </div>
+                {/* <a
+                  href="/files/curriculo.pdf"
+                  download
+                  className="text-lg font-semibold text-background bg-accent rounded-full py-3 px-10 transition-transform transform hover:scale-105 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                >
+                  Download CV
+                </a> */}
+              </div>
             </div>
 
             {/* Right: Text Content */}

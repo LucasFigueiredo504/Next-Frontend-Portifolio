@@ -9,8 +9,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative w-full border-t border-white/10 mt-20">
-      <div className="relative container mx-auto px-6 py-16 z-10">
+    <footer className="relative w-full border-t border-white/10 mt-20 max-w-6xl">
+      <div className="relative container mx-auto px-6 pt-16 pb-10 z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-primary mb-6">Menu</h3>
@@ -87,8 +87,6 @@ export function Footer() {
             </a>
           </div>
         </div>
-
-        <div className="w-full h-px bg-white/10 mb-8"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-slate-400 text-sm">

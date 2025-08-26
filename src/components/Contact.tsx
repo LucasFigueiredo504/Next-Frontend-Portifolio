@@ -69,33 +69,18 @@ export function Contact() {
   };
 
   return (
-    <div className="relative w-full bg-background">
-      <div className="absolute inset-0 -z-1">
-        <div className="absolute -bottom-20 right-1/2 w-[80vw] h-[90vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
-        <div className="absolute -bottom-20 right-1/2 w-[70vw] h-[80vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
-      </div>
+    <div className="relative w-full max-w-6xl">
       <div className="relative container mx-auto px-6 py-16 z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <h2 className="text-4xl font-light tracking-tight text-primary mb-4">
             Let's Work Together
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full" />
+          <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
         </div>
 
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Right Column - Image */}
-          <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative">
-              <Image
-                src={LaptopImage}
-                alt="Laptop workspace"
-                className="w-full max-w-md lg:max-w-lg h-auto object-cover rounded-2xl"
-              />
-            </div>
-          </div>
-
           {/* Left Column - Form */}
           <div className="w-full max-w-lg mx-auto lg:mx-0">
             {/* Success Notification */}
@@ -217,6 +202,17 @@ export function Contact() {
                   </>
                 )}
               </button>
+            </div>
+          </div>
+
+          {/* Right Column - Image */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <div className="relative">
+              <Image
+                src={LaptopImage}
+                alt="Laptop workspace"
+                className="w-full max-w-md lg:max-w-lg h-auto object-cover rounded-2xl"
+              />
             </div>
           </div>
         </div>
