@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { projectList } from "../lib/lists";
+
 import { ArrowRight } from "lucide-react";
 
 // Define the project type based on your data structure
@@ -143,9 +144,9 @@ export function Projects() {
             {projectList.map((project: Project, i: number) => (
               <div
                 key={i}
-                ref={(el: HTMLDivElement | null) =>
-                  (projectRefs.current[i] = el)
-                }
+                ref={(el: HTMLDivElement | null) => {
+                  projectRefs.current[i] = el;
+                }}
                 className="flex flex-col gap-2 w-full scroll-project-item"
               >
                 <div className="bg-white/10 w-full h-96 rounded-lg transition-all duration-300 hover:bg-white/15" />
