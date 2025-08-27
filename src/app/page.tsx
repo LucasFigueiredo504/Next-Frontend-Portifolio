@@ -1,6 +1,6 @@
 import Image from "next/image";
 //components
-import { Navbar } from "../components/Navbar";
+
 import { About } from "../components/About";
 import { Hero } from "../components/Hero";
 import { Skills } from "../components/Skills";
