@@ -58,8 +58,7 @@ export function About() {
               <p>
                 My journey into technology began in 2018, driven by a passion
                 for the infinite possibilities it unlocks. I started with C#
-                game development in Unity, but my curiosity led me to the
-                dynamic world of{" "}
+                game development in Unity, but my curiosity led me to{" "}
                 <strong className="text-accent font-semibold">
                   Web Development
                 </strong>{" "}
@@ -67,14 +66,12 @@ export function About() {
               </p>
               <p>
                 Since then, I've been honing my skills through dedicated
-                projects, continuous learning, and independent study. My
-                expertise is centered on modern{" "}
+                projects and continuous learning. My expertise centers on modern{" "}
                 <strong className="text-accent font-semibold">
                   Frontend Technologies
                 </strong>
-                , where I focus on creating seamless and engaging user
-                experiences. I also bring a keen eye for design, frequently
-                using tools like Photoshop to bridge the gap between vision and
+                , creating seamless user experiences. I also bring a keen eye
+                for design, using tools like Photoshop to bridge vision and
                 reality.
               </p>
             </div>
@@ -89,26 +86,17 @@ export function About() {
             {/* Right: Text Content */}
             <div className="max-w-2xl text-lg text-slate-300 text-left space-y-4 leading-8">
               <p>
-                My journey into technology began in 2018, driven by a passion
-                for the infinite possibilities it unlocks. I started with C#
-                game development in Unity, but my curiosity led me to the
-                dynamic world of{" "}
+                Driven by the desire to create and learn new things, I became a{" "}
+                <strong className="text-accent font-semibold">
+                  Game Developer
+                </strong>{" "}
+                to create the worlds I wanted to visit, then transitioned to{" "}
                 <strong className="text-accent font-semibold">
                   Web Development
                 </strong>{" "}
-                in 2021.
-              </p>
-              <p>
-                Since then, I've been honing my skills through dedicated
-                projects, continuous learning, and independent study. My
-                expertise is centered on modern{" "}
-                <strong className="text-accent font-semibold">
-                  Frontend Technologies
-                </strong>
-                , where I focus on creating seamless and engaging user
-                experiences. I also bring a keen eye for design, frequently
-                using tools like Photoshop to bridge the gap between vision and
-                reality.
+                to reach even higher and expand my horizons. My name is{" "}
+                <strong className="text-accent font-semibold">Lucas</strong> and
+                I look forward to working with a passionate team!
               </p>
             </div>
 
