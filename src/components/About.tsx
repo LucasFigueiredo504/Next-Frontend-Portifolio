@@ -21,7 +21,12 @@ export function About() {
         }`}
       >
         <div className="mb-16">
-          <h2 className="text-4xl font-light tracking-tight">About Me</h2>
+          <h2
+            className="text-4xl font-medium tracking-tight"
+            style={{ fontFamily: "var(--font-catamaran)" }}
+          >
+            Who am I
+          </h2>
           <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
         </div>
 

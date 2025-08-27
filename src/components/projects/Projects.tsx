@@ -69,7 +69,10 @@ export function Projects() {
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-4 gap-12">
           <div className="lg:sticky lg:top-10 lg:h-fit">
             <div className="mb-20">
-              <h2 className="text-4xl font-light tracking-tight text-primary">
+              <h2
+                className="text-4xl font-medium tracking-tight text-primary"
+                style={{ fontFamily: "var(--font-catamaran)" }}
+              >
                 Featured Projects
               </h2>
               <div className="w-24 h-1 bg-accent mt-4 rounded-full" />

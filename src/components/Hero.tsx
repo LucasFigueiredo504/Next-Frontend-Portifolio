@@ -25,8 +25,11 @@ export function Hero() {
           <h1 className="text-5xl md:text-3xl font-light tracking-tight text-accent">
             Lucas Emanoel
           </h1>
-          <p className="text-2xl md:text-7xl font-medium ">
-            Frontend Developer
+          <p
+            className="text-2xl md:text-7xl font-medium tracking-tight"
+            style={{ fontFamily: "var(--font-catamaran)" }}
+          >
+            Web & Game Developer
           </p>
           <p className="max-w-xl text-lg text-slate-300 mt-2">
             I build elegant and responsive web applications, turning complex

@@ -15,7 +15,10 @@ export function Skills() {
       <div className="container mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-20">
-          <h2 className="text-4xl font-light tracking-tight mb-6">
+          <h2
+            className="text-4xl font-medium tracking-tight mb-6"
+            style={{ fontFamily: "var(--font-catamaran)" }}
+          >
             Tech Stack
           </h2>
           <div className="w-24 h-1 bg-accent rounded-full" />

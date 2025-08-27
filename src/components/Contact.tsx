@@ -73,7 +73,10 @@ export function Contact() {
       <div className="relative container mx-auto px-6 py-16 z-10">
         {/* Header */}
         <div className="mb-16">
-          <h2 className="text-4xl font-light tracking-tight text-primary mb-4">
+          <h2
+            className="text-4xl font-medium tracking-tight text-primary mb-4"
+            style={{ fontFamily: "var(--font-catamaran)" }}
+          >
             Let's Work Together
           </h2>
           <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
