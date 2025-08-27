@@ -1,7 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { projectList } from "../../lib/lists";
-import { ProjectCard } from "./ProjectCard";
+import { projectList } from "../lib/lists";
 import { ArrowRight } from "lucide-react";
 
 // Define the project type based on your data structure
