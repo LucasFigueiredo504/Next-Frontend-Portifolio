@@ -69,30 +69,47 @@ export const projectList = [
   {
     image: cardBattle,
     link: "https://lucastheldl.github.io/CardBattle/",
-    title: "Card Battle",
-    technology: ["React", "Styled components", "Typescript", "Firebase"],
-    content: "Jogo de batalha entre cartas colecionáveis",
+    title: "Maratona da Amazônia",
+    technologies: ["Next.js", "Tailwind", "Typescript"],
+    content:
+      "Maratona da Amazônia is an event website promoting the Amazon Half Marathon in Belém, Brazil, offering race details, registrations, and cultural experiences for runners of all levels.",
   },
   {
     image: shirtShop,
     link: "https://master-tables.vercel.app/",
     title: "RPG Manager",
-    technology: ["Next.js", "Typescript", "Drizzle", "Node.js", "Tailwind"],
-    content: "Website para gerenciamento de rpg com tabelas dinâmicas",
+    technologies: [
+      "Next.js",
+      "Typescript",
+      "Drizzle",
+      "Node.js",
+      "Tailwind",
+      "PostgreSQL",
+    ],
+    content:
+      "Website para gerenciamento de campanhas rpg com criação e gerenciamento de elementos utilizando tabelas dinâmicas",
   },
   {
     image: pomodoro,
-    link: "https://lucastheldl.github.io/IgnitePomodoro/",
-    title: "Timer Pomodoro",
-    technology: ["React", "Typescript", "Styled components"],
-    content: "Aplicação de gerenciamento de tarefas usando timer",
+    link: "https://tickzi.com",
+    title: "Tickzi",
+    technologies: [
+      "Next.js",
+      "React Native",
+      "Typescript",
+      "Tailwind",
+      "Drizzle",
+    ],
+    content:
+      "Tickzi is a Brazilian ticketing platform that enables users to buy, transfer, and manage event tickets securely through a modern web and mobile interface",
   },
   {
     image: githubBlog,
     link: "https://lucastheldl.github.io/GithubBlog/",
-    title: "Tech Blog Github",
-    technology: ["React", "Typescript", "CSS modules"],
-    content: "Blog para documentar minhas postagens de tecnologia",
+    title: "Global Discounting",
+    technologies: ["Next.js", "Typescript", "Tailwind"],
+    content:
+      "Global Discounting is a digital financial platform that provides companies with innovative solutions to unlock cash flow and manage licensing agreements efficiently.",
   } /*,
   {
     image: booksCollection,
