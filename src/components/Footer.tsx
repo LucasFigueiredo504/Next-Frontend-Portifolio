@@ -1,8 +1,37 @@
 "use client";
+import { useState, useEffect } from "react";
 import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentYear, setCurrentYear] = useState(2024); // fallback year
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Set initial values
+    const now = new Date();
+    setCurrentYear(now.getFullYear());
+    setCurrentTime(
+      now.toLocaleTimeString("en-US", {
+        hour12: false,
+        timeZoneName: "short",
+      })
+    );
+    setMounted(true);
+
+    // Update time every second
+    const interval = setInterval(() => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString("en-US", {
+          hour12: false,
+          timeZoneName: "short",
+        })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -96,10 +125,7 @@ export function Footer() {
           <div className="text-slate-400 text-sm">
             <span className="uppercase tracking-wide">Local Time</span>
             <div className="text-accent font-mono">
-              {new Date().toLocaleTimeString("en-US", {
-                hour12: false,
-                timeZoneName: "short",
-              })}
+              {mounted ? currentTime : "--:--:-- ---"}
             </div>
           </div>
 
