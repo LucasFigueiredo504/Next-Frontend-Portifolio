@@ -15,7 +15,9 @@ interface Project {
 }
 
 export function Projects() {
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(
+    projectList[0]
+  );
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -66,9 +68,9 @@ export function Projects() {
   return (
     <section className="relative w-full py-24 md:py-32" id="projects">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-4 gap-12">
-          <div className="lg:sticky lg:top-10 lg:h-fit">
-            <div className="mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-4 gap-24">
+          <div className="lg:sticky lg:top-20 lg:h-fit">
+            <div className="mb-16">
               <h2
                 className="text-4xl font-medium tracking-tight text-primary"
                 style={{ fontFamily: "var(--font-catamaran)" }}

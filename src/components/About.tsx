@@ -40,12 +40,12 @@ export function About() {
           >
             {/* Left: Image */}
             <div className="flex-shrink-0">
-              <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
-                <div className="overflow-hidden rounded-2xl">
+              <div className="flex flex-col gap-6 mt-10 md:mt-0">
+                <div className="">
                   <Image
                     src={picture || "/placeholder.svg"}
                     alt="Lucas Emanoel"
-                    className="w-96 h-64 md:w-96 md:h-80  object-cover "
+                    className="w-96 h-96  object-cover rounded-2xl"
                   />
                 </div>
                 {/* <a
