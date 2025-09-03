@@ -2,14 +2,14 @@
 import { useState, useRef, useEffect } from "react";
 import { projectList } from "../lib/lists";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 
 interface Project {
   title: string;
   content?: string;
   technologies?: string[];
   githubUrl?: string;
-  liveUrl?: string;
+  link?: string;
   imageUrl?: string;
   videoUrl?: string;
 }
@@ -24,7 +24,6 @@ export function Projects() {
     new Array(projectList.length).fill(false)
   );
 
-  // Handle video loading for each project
   const handleVideoLoaded = (index: number) => {
     setVideosLoaded((prev) => {
       const newState = [...prev];
@@ -34,7 +33,6 @@ export function Projects() {
   };
 
   useEffect(() => {
-    // Check for already loaded videos on mount
     videoRefs.current.forEach((video, index) => {
       if (video && video.readyState >= 3) {
         handleVideoLoaded(index);
@@ -43,8 +41,8 @@ export function Projects() {
 
     const observerOptions: IntersectionObserverInit = {
       root: null,
-      rootMargin: "0px 0px -80% 0px",
-      threshold: 0,
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: [0, 0.25, 0.5, 0.75, 1],
     };
 
     const observerCallback: IntersectionObserverCallback = (entries) => {
@@ -57,15 +55,24 @@ export function Projects() {
           return {
             entry,
             projectIndex,
+            intersectionRatio: entry.intersectionRatio,
             boundingRect: entry.boundingClientRect,
           };
         })
-        .filter(({ projectIndex }) => projectIndex !== -1)
-        .sort((a, b) => a.boundingRect.top - b.boundingRect.top);
+        .filter(({ projectIndex }) => projectIndex !== -1);
 
       if (intersectingEntries.length > 0) {
-        const topProject = intersectingEntries[0];
-        setActiveProject(projectList[topProject.projectIndex] as Project);
+        const mostVisibleProject = intersectingEntries.reduce(
+          (prev, current) => {
+            return current.intersectionRatio > prev.intersectionRatio
+              ? current
+              : prev;
+          }
+        );
+
+        setActiveProject(
+          projectList[mostVisibleProject.projectIndex] as Project
+        );
       }
     };
 
@@ -108,7 +115,31 @@ export function Projects() {
                       {activeProject.content}
                     </p>
                   )}
-
+                  {(activeProject.githubUrl || activeProject.link) && (
+                    <div className="flex gap-4">
+                      {activeProject.githubUrl && (
+                        <a
+                          href={activeProject.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+                        >
+                          <Github size={16} />
+                        </a>
+                      )}
+                      {activeProject.link && (
+                        <a
+                          href={activeProject.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+                        >
+                          Live Demo
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                   {activeProject.technologies &&
                     activeProject.technologies.length > 0 && (
                       <div className="flex flex-wrap gap-2">
@@ -124,33 +155,6 @@ export function Projects() {
                         )}
                       </div>
                     )}
-
-                  {(activeProject.githubUrl || activeProject.liveUrl) && (
-                    <div className="flex gap-4">
-                      {activeProject.githubUrl && (
-                        <a
-                          href={activeProject.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-                        >
-                          View Code
-                          <ArrowRight size={16} />
-                        </a>
-                      )}
-                      {activeProject.liveUrl && (
-                        <a
-                          href={activeProject.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-                        >
-                          Live Demo
-                          <ArrowRight size={16} />
-                        </a>
-                      )}
-                    </div>
-                  )}
                 </div>
               ) : (
                 <div className="opacity-50">
