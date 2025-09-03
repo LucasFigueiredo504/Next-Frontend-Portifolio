@@ -4,7 +4,6 @@ import { projectList } from "../lib/lists";
 
 import { ArrowRight } from "lucide-react";
 
-// Define the project type based on your data structure
 interface Project {
   title: string;
   content?: string;
@@ -12,6 +11,7 @@ interface Project {
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
+  videoUrl?: string;
 }
 
 export function Projects() {
@@ -19,8 +19,28 @@ export function Projects() {
     projectList[0]
   );
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [videosLoaded, setVideosLoaded] = useState<boolean[]>(
+    new Array(projectList.length).fill(false)
+  );
+
+  // Handle video loading for each project
+  const handleVideoLoaded = (index: number) => {
+    setVideosLoaded((prev) => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
 
   useEffect(() => {
+    // Check for already loaded videos on mount
+    videoRefs.current.forEach((video, index) => {
+      if (video && video.readyState >= 3) {
+        handleVideoLoaded(index);
+      }
+    });
+
     const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: "0px 0px -80% 0px",
@@ -151,27 +171,52 @@ export function Projects() {
                 }}
                 className="flex flex-col gap-2 w-full scroll-project-item"
               >
-                <div className="bg-white/10 w-full h-96 rounded-lg transition-all duration-300 hover:bg-white/15" />
+                <div className="bg-accent/20 h-96 w-full flex justify-center items-center rounded-lg p-4">
+                  <div className="relative w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
+                    {project.videoUrl ? (
+                      <>
+                        {!videosLoaded[i] && (
+                          <div className="absolute  inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
+                        )}
+
+                        <video
+                          ref={(el: HTMLVideoElement | null) => {
+                            videoRefs.current[i] = el;
+                          }}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          onCanPlay={() => handleVideoLoaded(i)}
+                          className={`w-full h-full object-cover transition-opacity duration-300  ${
+                            videosLoaded[i] ? "opacity-100" : "opacity-0"
+                          }`}
+                        >
+                          <source src={project.videoUrl} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </>
+                    ) : project.imageUrl ? (
+                      <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-white/10 flex items-center justify-center">
+                        <span className="text-gray-400 text-lg">
+                          {project.title}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <h3 className="text-xl font-thin">{project.title}</h3>
               </div>
             ))}
           </div>
         </div>
-
-        {/* GitHub CTA Button */}
-        {/* <div className="text-center mt-20">
-          <a
-            href="https://github.com/lucastheldl"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-lg font-semibold text-background bg-accent rounded-full py-3 px-8 
-                       transition-transform transform hover:scale-105 hover:bg-accent/90 focus:outline-none 
-                       focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
-          >
-            View All on GitHub
-            <ArrowRight size={20} />
-          </a>
-        </div> */}
       </div>
     </section>
   );
