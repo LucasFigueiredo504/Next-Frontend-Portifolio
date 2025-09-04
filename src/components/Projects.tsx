@@ -15,15 +15,13 @@ interface Project {
 }
 
 export function Projects() {
-  const [activeProject, setActiveProject] = useState<Project | null>(
-    projectList[0]
-  );
+  const [activeProjectIndex, setActiveProjectIndex] = useState<number>(0);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [videosLoaded, setVideosLoaded] = useState<boolean[]>(
     new Array(projectList.length).fill(false)
   );
-  const lastActiveProjectIndex = useRef<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleVideoLoaded = (index: number) => {
     setVideosLoaded((prev) => {
@@ -33,12 +31,31 @@ export function Projects() {
     });
   };
 
-  // Debounced function to update active project
-  const updateActiveProject = useCallback((projectIndex: number) => {
-    if (projectIndex !== lastActiveProjectIndex.current) {
-      lastActiveProjectIndex.current = projectIndex;
-      setActiveProject(projectList[projectIndex] as Project);
-    }
+  const updateActiveProject = useCallback(() => {
+    if (!containerRef.current) return;
+
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const containerCenter = containerRect.top + containerRect.height;
+
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    projectRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+
+      const rect = ref.getBoundingClientRect();
+      const projectCenter = rect.top + rect.height;
+      const distance = Math.abs(containerCenter - projectCenter);
+
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      }
+    });
+
+    setActiveProjectIndex(closestIndex);
   }, []);
 
   useEffect(() => {
@@ -48,71 +65,33 @@ export function Projects() {
       }
     });
 
-    const observerOptions: IntersectionObserverInit = {
-      root: null,
-      rootMargin: "-30% 0px -30% 0px",
-      threshold: [0.1, 0.5, 0.9],
-    };
+    // Throttled scroll handler for better performance
+    let ticking = false;
 
-    let timeoutId: NodeJS.Timeout;
-
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      clearTimeout(timeoutId);
-
-      timeoutId = setTimeout(() => {
-        const intersectingEntries = entries
-          .filter(
-            (entry) => entry.isIntersecting && entry.intersectionRatio > 0.1
-          )
-          .map((entry) => {
-            const projectIndex = projectRefs.current.indexOf(
-              entry.target as HTMLDivElement
-            );
-            return {
-              entry,
-              projectIndex,
-              intersectionRatio: entry.intersectionRatio,
-              boundingRect: entry.boundingClientRect,
-            };
-          })
-          .filter(({ projectIndex }) => projectIndex !== -1);
-
-        if (intersectingEntries.length > 0) {
-          // Find the project that's most centered in the viewport
-          const mostCenteredProject = intersectingEntries.reduce(
-            (prev, current) => {
-              const prevDistance = Math.abs(
-                prev.boundingRect.top + prev.boundingRect.height / 2
-              );
-              const currentDistance = Math.abs(
-                current.boundingRect.top + current.boundingRect.height / 2
-              );
-
-              return currentDistance < prevDistance ? current : prev;
-            }
-          );
-
-          updateActiveProject(mostCenteredProject.projectIndex);
-        }
-      }, 100); // 100ms debounce
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-
-    projectRefs.current.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveProject();
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    };
+
+    // Initial calculation
+    updateActiveProject();
+
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateActiveProject, { passive: true });
 
     return () => {
-      observer.disconnect();
-      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateActiveProject);
     };
   }, [updateActiveProject]);
+
+  const activeProject = projectList[activeProjectIndex];
 
   return (
     <section className="relative w-full py-24 md:py-32" id="projects">
@@ -129,12 +108,9 @@ export function Projects() {
               <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
             </div>
 
-            <div className="transition-all duration-700 ease-out">
+            <div className="transition-all duration-500 ease-out">
               {activeProject ? (
-                <div
-                  key={activeProject.title}
-                  className="space-y-6 opacity-100"
-                >
+                <div className="space-y-6 opacity-100">
                   {activeProject.content && (
                     <p className="text-lg text-gray-300 leading-relaxed">
                       {activeProject.content}
@@ -191,14 +167,16 @@ export function Projects() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-16">
+          <div ref={containerRef} className="flex flex-col gap-16">
             {projectList.map((project: Project, i: number) => (
               <div
                 key={i}
                 ref={(el: HTMLDivElement | null) => {
                   projectRefs.current[i] = el;
                 }}
-                className="flex flex-col gap-2 w-full scroll-project-item"
+                className={`flex flex-col gap-2 w-full scroll-project-item transition-all duration-300 ${
+                  i === activeProjectIndex ? "opacity-100" : "opacity-70"
+                }`}
               >
                 <div className="bg-accent/20 h-96 w-full flex justify-center items-center rounded-lg p-4">
                   <div className="relative w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
@@ -241,7 +219,13 @@ export function Projects() {
                     )}
                   </div>
                 </div>
-                <h3 className="text-xl font-thin">{project.title}</h3>
+                <h3
+                  className={`text-xl font-thin transition-colors duration-300 ${
+                    i === activeProjectIndex ? "text-accent" : "text-gray-400"
+                  }`}
+                >
+                  {project.title}
+                </h3>
               </div>
             ))}
           </div>
