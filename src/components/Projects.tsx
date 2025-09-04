@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { projectList } from "../lib/lists";
 
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
@@ -23,6 +23,7 @@ export function Projects() {
   const [videosLoaded, setVideosLoaded] = useState<boolean[]>(
     new Array(projectList.length).fill(false)
   );
+  const lastActiveProjectIndex = useRef<number>(0);
 
   const handleVideoLoaded = (index: number) => {
     setVideosLoaded((prev) => {
@@ -31,6 +32,14 @@ export function Projects() {
       return newState;
     });
   };
+
+  // Debounced function to update active project
+  const updateActiveProject = useCallback((projectIndex: number) => {
+    if (projectIndex !== lastActiveProjectIndex.current) {
+      lastActiveProjectIndex.current = projectIndex;
+      setActiveProject(projectList[projectIndex] as Project);
+    }
+  }, []);
 
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
@@ -41,39 +50,51 @@ export function Projects() {
 
     const observerOptions: IntersectionObserverInit = {
       root: null,
-      rootMargin: "-20% 0px -20% 0px",
-      threshold: [0, 0.25, 0.5, 0.75, 1],
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: [0.1, 0.5, 0.9],
     };
 
+    let timeoutId: NodeJS.Timeout;
+
     const observerCallback: IntersectionObserverCallback = (entries) => {
-      const intersectingEntries = entries
-        .filter((entry) => entry.isIntersecting)
-        .map((entry) => {
-          const projectIndex = projectRefs.current.indexOf(
-            entry.target as HTMLDivElement
+      clearTimeout(timeoutId);
+
+      timeoutId = setTimeout(() => {
+        const intersectingEntries = entries
+          .filter(
+            (entry) => entry.isIntersecting && entry.intersectionRatio > 0.1
+          )
+          .map((entry) => {
+            const projectIndex = projectRefs.current.indexOf(
+              entry.target as HTMLDivElement
+            );
+            return {
+              entry,
+              projectIndex,
+              intersectionRatio: entry.intersectionRatio,
+              boundingRect: entry.boundingClientRect,
+            };
+          })
+          .filter(({ projectIndex }) => projectIndex !== -1);
+
+        if (intersectingEntries.length > 0) {
+          // Find the project that's most centered in the viewport
+          const mostCenteredProject = intersectingEntries.reduce(
+            (prev, current) => {
+              const prevDistance = Math.abs(
+                prev.boundingRect.top + prev.boundingRect.height / 2
+              );
+              const currentDistance = Math.abs(
+                current.boundingRect.top + current.boundingRect.height / 2
+              );
+
+              return currentDistance < prevDistance ? current : prev;
+            }
           );
-          return {
-            entry,
-            projectIndex,
-            intersectionRatio: entry.intersectionRatio,
-            boundingRect: entry.boundingClientRect,
-          };
-        })
-        .filter(({ projectIndex }) => projectIndex !== -1);
 
-      if (intersectingEntries.length > 0) {
-        const mostVisibleProject = intersectingEntries.reduce(
-          (prev, current) => {
-            return current.intersectionRatio > prev.intersectionRatio
-              ? current
-              : prev;
-          }
-        );
-
-        setActiveProject(
-          projectList[mostVisibleProject.projectIndex] as Project
-        );
-      }
+          updateActiveProject(mostCenteredProject.projectIndex);
+        }
+      }, 100); // 100ms debounce
     };
 
     const observer = new IntersectionObserver(
@@ -89,8 +110,9 @@ export function Projects() {
 
     return () => {
       observer.disconnect();
+      clearTimeout(timeoutId);
     };
-  }, []);
+  }, [updateActiveProject]);
 
   return (
     <section className="relative w-full py-24 md:py-32" id="projects">
@@ -107,9 +129,12 @@ export function Projects() {
               <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
             </div>
 
-            <div className="transition-all duration-500 ease-in-out">
+            <div className="transition-all duration-700 ease-out">
               {activeProject ? (
-                <div className="space-y-6 opacity-100">
+                <div
+                  key={activeProject.title}
+                  className="space-y-6 opacity-100"
+                >
                   {activeProject.content && (
                     <p className="text-lg text-gray-300 leading-relaxed">
                       {activeProject.content}
@@ -180,7 +205,7 @@ export function Projects() {
                     {project.videoUrl ? (
                       <>
                         {!videosLoaded[i] && (
-                          <div className="absolute  inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
+                          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
                         )}
 
                         <video
@@ -192,7 +217,7 @@ export function Projects() {
                           loop
                           playsInline
                           onCanPlay={() => handleVideoLoaded(i)}
-                          className={`w-full h-full object-cover transition-opacity duration-300  ${
+                          className={`w-full h-full object-cover transition-opacity duration-300 ${
                             videosLoaded[i] ? "opacity-100" : "opacity-0"
                           }`}
                         >
