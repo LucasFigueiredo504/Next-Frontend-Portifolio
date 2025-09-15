@@ -1,7 +1,4 @@
-import Image from "next/image";
-import picture from "../assets/picture.webp";
 import { Github, Linkedin } from "lucide-react";
-import pattern from "../assets/pattens.jpg";
 
 export function Hero() {
   return (
@@ -11,13 +8,6 @@ export function Hero() {
         <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
         <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
       </div>
-      {/* <Image
-        src={pattern}
-        className="absolute top-10 right-10 mix-blend-lighten"
-        width={600}
-        height={1000}
-        alt=""
-      /> */}
 
       <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-4">
         {/* Left: Text Content */}
@@ -36,7 +26,7 @@ export function Hero() {
             problems into beautiful, intuitive digital experiences.
           </p>
           {/* Social Links */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex justify-center md:justify-start gap-4 mt-6">
             <a
               href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
               target="_blank"

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { motion } from "motion/react";
 import {
   Mail,
   Send,
@@ -68,27 +69,54 @@ export function Contact() {
     setErrorMessage("");
   };
 
+  // Animation variants for subtle appear effect
+  const appearVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
     <div className="relative w-full max-w-6xl">
-      <div className="relative container mx-auto px-6 py-16 z-10">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-24 z-10">
         {/* Header */}
-        <div className="mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={appearVariants}
+          className="mb-12 md:mb-16"
+        >
           <h2
-            className="text-4xl font-medium tracking-tight text-primary mb-4"
+            className="text-3xl sm:text-4xl font-medium tracking-tight text-primary mb-4"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
             Let's Work Together
           </h2>
-          <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
-        </div>
+          <div className="w-20 sm:w-24 h-1 bg-accent mt-3 sm:mt-4 rounded-full" />
+        </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Column - Form */}
-          <div className="w-full max-w-lg mx-auto lg:mx-0">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={appearVariants}
+            className="w-full max-w-lg mx-auto md:mx-0 order-2 md:order-none"
+          >
             {/* Success Notification */}
             {submissionState === "success" && (
-              <div className="mb-6 p-4 bg-accent/10 border border-accent/30 rounded-2xl flex items-center justify-between text-accent">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={appearVariants}
+                className="mb-6 p-4 bg-accent/10 border border-accent/30 rounded-2xl flex items-center justify-between text-accent"
+              >
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} />
                   <span>
@@ -101,12 +129,17 @@ export function Contact() {
                 >
                   <X size={16} />
                 </button>
-              </div>
+              </motion.div>
             )}
 
             {/* Error Notification */}
             {submissionState === "error" && (
-              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl flex items-center justify-between text-red-300">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={appearVariants}
+                className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl flex items-center justify-between text-red-300"
+              >
                 <div className="flex items-center gap-3">
                   <AlertCircle size={20} />
                   <span>{errorMessage}</span>
@@ -117,7 +150,7 @@ export function Contact() {
                 >
                   <X size={16} />
                 </button>
-              </div>
+              </motion.div>
             )}
 
             <div className="space-y-6">
@@ -134,7 +167,7 @@ export function Contact() {
                   id="name"
                   type="text"
                   {...register("name")}
-                  className="w-full px-4 py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-2 sm:py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                   placeholder="Your full name"
                 />
                 {errors.name && (
@@ -155,7 +188,7 @@ export function Contact() {
                   id="email"
                   type="email"
                   {...register("email")}
-                  className="w-full px-4 py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-2 sm:py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
@@ -174,9 +207,9 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
-                  rows={6}
+                  rows={5}
                   {...register("message")}
-                  className="w-full px-4 py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-2 sm:py-3 bg-transparent border border-white/10 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
                   placeholder="Tell me about your project, ideas, or how we can work together..."
                 />
                 {errors.message && (
@@ -191,7 +224,7 @@ export function Contact() {
                 type="button"
                 onClick={handleSubmit(onSubmit)}
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-accent text-gray-900 font-bold rounded-2xl hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-3 px-6 py-2 sm:py-3 bg-accent text-gray-900 font-bold rounded-2xl hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -206,18 +239,26 @@ export function Contact() {
                 )}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Image */}
-          <div className="flex items-center justify-center lg:justify-end">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={appearVariants}
+            className="flex items-center justify-center md:justify-end order-1 md:order-none"
+          >
             <div className="relative">
               <Image
                 src={LaptopImage}
                 alt="Laptop workspace"
-                className="w-full max-w-md lg:max-w-lg h-auto object-cover rounded-2xl"
+                className="w-full max-w-[280px] sm:max-w-[360px] md:max-w-[450px] lg:max-w-[500px] h-auto object-cover rounded-2xl"
+                width={500}
+                height={300}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

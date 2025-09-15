@@ -1,8 +1,7 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { projectList } from "../lib/lists";
-
-import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 interface Project {
   title: string;
@@ -34,28 +33,27 @@ export function Projects() {
   const updateActiveProject = useCallback(() => {
     if (!containerRef.current) return;
 
-    const containerRect = containerRef.current.getBoundingClientRect();
-    const containerCenter = containerRect.top + containerRect.height;
-
-    let closestIndex = 0;
-    let closestDistance = Infinity;
+    let topmostIndex = 0;
+    let minTopDistance = Infinity;
 
     projectRefs.current.forEach((ref, index) => {
       if (!ref) return;
 
       const rect = ref.getBoundingClientRect();
-      const projectCenter = rect.top + rect.height;
-      const distance = Math.abs(containerCenter - projectCenter);
+      const topDistance = Math.abs(rect.top);
 
-      if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
+      if (
+        rect.top >= -rect.height &&
+        rect.bottom <= window.innerHeight + rect.height
+      ) {
+        if (topDistance < minTopDistance) {
+          minTopDistance = topDistance;
+          topmostIndex = index;
         }
       }
     });
 
-    setActiveProjectIndex(closestIndex);
+    setActiveProjectIndex(topmostIndex);
   }, []);
 
   useEffect(() => {
@@ -65,7 +63,6 @@ export function Projects() {
       }
     });
 
-    // Throttled scroll handler for better performance
     let ticking = false;
 
     const handleScroll = () => {
@@ -78,10 +75,8 @@ export function Projects() {
       }
     };
 
-    // Initial calculation
     updateActiveProject();
 
-    // Add scroll listener
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", updateActiveProject, { passive: true });
 
@@ -97,7 +92,8 @@ export function Projects() {
     <section className="relative w-full py-24 md:py-32" id="projects">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-4 gap-24">
-          <div className="lg:sticky lg:top-20 lg:h-fit">
+          {/* Sticky description for large screens */}
+          <div className="hidden lg:block lg:sticky lg:top-20 lg:h-fit">
             <div className="mb-16">
               <h2
                 className="text-4xl font-medium tracking-tight text-primary"
@@ -167,6 +163,7 @@ export function Projects() {
             </div>
           </div>
 
+          {/* Project list */}
           <div ref={containerRef} className="flex flex-col gap-16">
             {projectList.map((project: Project, i: number) => (
               <div
@@ -226,6 +223,53 @@ export function Projects() {
                 >
                   {project.title}
                 </h3>
+                {/* Description for mobile screens */}
+                <div className="lg:hidden space-y-6">
+                  {project.content && (
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      {project.content}
+                    </p>
+                  )}
+                  {(project.githubUrl || project.link) && (
+                    <div className="flex gap-4">
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+                        >
+                          <Github size={16} />
+                        </a>
+                      )}
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+                        >
+                          Live Demo
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map(
+                        (tech: string, index: number) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

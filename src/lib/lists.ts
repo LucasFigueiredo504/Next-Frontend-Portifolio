@@ -1,56 +1,129 @@
-export const skillsList = [
+import { IconType } from "react-icons";
+import {
+  SiReact,
+  SiReactquery,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiFastify,
+  SiPostgresql,
+  SiSharp,
+  SiMongodb,
+  SiUnity,
+  SiAdobephotoshop,
+  SiBlender,
+} from "react-icons/si";
+
+export interface Skill {
+  title: string;
+  description: string;
+  icon: IconType; // use a React component instead of string
+  category: "Frontend" | "Backend & Databases" | "Game Development";
+}
+
+export const skillsList: Skill[] = [
+  // Frontend
   {
-    image: "/placeholder.svg?height=64&width=64",
-    title: "JavaScript",
-    description: "Dynamic programming language for web development",
-  },
-  {
-    image: "/placeholder.svg?height=64&width=64",
-    title: "TypeScript",
-    description: "Typed superset of JavaScript for better development",
-  },
-  {
-    image: "/placeholder.svg?height=64&width=64",
-    title: "Tailwind CSS",
-    description: "Utility-first CSS framework for rapid UI development",
-  },
-  {
-    image: "/placeholder.svg?height=64&width=64",
-    title: "Git",
-    description: "Distributed version control system",
-  },
-  {
-    image: "/placeholder.svg?height=64&width=64",
     title: "React",
-    description: "JavaScript library for building user interfaces",
+    description:
+      "Building dynamic, component-based user interfaces with React.",
+    icon: SiReact,
+    category: "Frontend",
   },
   {
-    image: "/placeholder.svg?height=64&width=64",
     title: "React Native",
-    description: "Framework for building native mobile apps with React",
+    description:
+      "Developing mobile applications for iOS and Android using React Native.",
+    icon: SiReact,
+    category: "Frontend",
   },
   {
-    image: "/placeholder.svg?height=64&width=64",
     title: "Next.js",
-    category: "webdev",
-    description: "React framework for production-ready applications",
+    description:
+      "Creating server-side rendered and statically generated web applications with Next.js.",
+    icon: SiNextdotjs,
+    category: "Frontend",
   },
   {
-    image: "/placeholder.svg?height=64&width=64",
+    title: "TypeScript",
+    description:
+      "Enhancing JavaScript with static typing for scalable and maintainable applications.",
+    icon: SiTypescript,
+    category: "Frontend",
+  },
+  {
+    title: "Tailwind CSS",
+    description:
+      "Crafting responsive, utility-first designs quickly with Tailwind CSS.",
+    icon: SiTailwindcss,
+    category: "Frontend",
+  },
+
+  // Backend & Databases
+  {
     title: "Node.js",
-    description: "JavaScript runtime for server-side development",
+    description:
+      "Building scalable server-side applications and APIs using Node.js runtime.",
+    icon: SiNodedotjs,
+    category: "Backend & Databases",
   },
   {
-    image: "/placeholder.svg?height=64&width=64",
+    title: "Express",
+    description:
+      "Creating robust APIs and server-side logic with the Express framework.",
+    icon: SiExpress,
+    category: "Backend & Databases",
+  },
+  {
+    title: "Fastify",
+    description:
+      "Developing high-performance backend services using the Fastify framework.",
+    icon: SiFastify,
+    category: "Backend & Databases",
+  },
+  {
     title: "PostgreSQL",
     description:
-      "An advanced open-source relational database known for reliability, scalability, and SQL compliance.",
+      "Managing relational databases with advanced querying and strong data integrity.",
+    icon: SiPostgresql,
+    category: "Backend & Databases",
   },
   {
-    image: "/placeholder.svg?height=64&width=64",
-    title: "Unity Engine",
+    title: "MongoDB",
     description:
-      "A powerful cross-platform game engine using C# for building 2D, 3D, and VR/AR experiences.",
+      "Handling flexible, document-oriented NoSQL databases for scalable data storage.",
+    icon: SiMongodb,
+    category: "Backend & Databases",
+  },
+
+  // Game Development
+  {
+    title: "Unity",
+    description: "Developing immersive 2D and 3D games using Unity and C#.",
+    icon: SiUnity,
+    category: "Game Development",
+  },
+  {
+    title: "C#",
+    description: "Programming game logic and mechanics with C# in Unity.",
+    icon: SiSharp,
+    category: "Game Development",
+  },
+  {
+    title: "Photoshop",
+    description:
+      "Creating and editing graphics, textures, and visual assets for games.",
+    icon: SiAdobephotoshop,
+    category: "Game Development",
+  },
+  {
+    title: "Blender",
+    description:
+      "Modeling, animating, and rendering 3D assets for games using Blender.",
+    icon: SiBlender,
+    category: "Game Development",
   },
 ];
 

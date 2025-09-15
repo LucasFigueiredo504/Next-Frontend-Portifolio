@@ -1,69 +1,108 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
-import { skillsList } from "@/lib/lists";
+import { motion } from "motion/react";
+import { skillsList, Skill } from "@/lib/lists";
 
 export function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState<any>(null);
+  // Group skills by category
+  const groupedSkills = skillsList.reduce((acc, skill) => {
+    if (!acc[skill.category]) acc[skill.category] = [];
+    acc[skill.category].push(skill);
+    return acc;
+  }, {} as Record<string, Skill[]>);
+
+  // Animation variants for subtle appear effect
+  const appearVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  // Container variants for staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
   return (
-    <section className="relative w-full py-24 md:py-32 text-white" id="skills">
+    <section
+      className="relative w-full py-12 sm:py-16 md:py-24 lg:py-32 text-white"
+      id="skills"
+    >
       <div className="absolute inset-0 -z-1">
-        <div className="absolute -bottom-20 right-1/2 w-[80vw] h-[90vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
-        <div className="absolute -bottom-20 right-1/2 w-[70vw] h-[80vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
+        <div className="absolute -bottom-10 right-1/2 w-[80vw] sm:w-[70vw] h-[80vh] sm:h-[90vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
+        <div className="absolute -bottom-10 right-1/2 w-[60vw] sm:w-[50vw] h-[70vh] sm:h-[80vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
       </div>
-      <div className="container mx-auto max-w-6xl px-6">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-20">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={appearVariants}
+          className="mb-12 md:mb-16"
+        >
           <h2
-            className="text-4xl font-medium tracking-tight mb-6"
+            className="text-3xl sm:text-4xl font-medium tracking-tight mb-4 md:mb-6"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
             Tech Stack
           </h2>
-          <div className="w-24 h-1 bg-accent rounded-full" />
-        </div>
+          <div className="w-20 sm:w-24 h-1 bg-accent rounded-full" />
+        </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {skillsList.map((skill, index) => (
-            <div
-              key={index}
-              className="group relative bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-8 hover:border-slate-600 transition-all duration-500 hover:transform hover:scale-105"
-              onMouseEnter={() => setHoveredSkill(skill)}
-              onMouseLeave={() => setHoveredSkill(null)}
+        {/* Three-Column Layout */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12"
+        >
+          {Object.entries(groupedSkills).map(([category, skills]) => (
+            <motion.div
+              key={category}
+              variants={appearVariants}
+              className="flex flex-col gap-4 sm:gap-6"
             >
-              {/* Skill Icon */}
-              <div className="w-16 h-16 mx-auto mb-6 relative overflow-hidden rounded-xl bg-slate-800/50 flex items-center justify-center group-hover:bg-accent/20 transition-all duration-300">
-                <Image
-                  src={skill.image}
-                  alt={skill.title}
-                  width={40}
-                  height={40}
-                  className="object-contain filter group-hover:brightness-110 transition-all duration-300"
-                />
-              </div>
-
-              {/* Skill Title */}
-              <h3 className="text-xl font-semibold text-center mb-3 group-hover:text-accent transition-colors duration-300">
-                {skill.title}
+              <h3
+                className="text-xl sm:text-2xl font-semibold text-accent mb-4 sm:mb-6 text-left"
+                style={{ fontFamily: "var(--font-catamaran)" }}
+              >
+                {category}
               </h3>
-
-              {/* Skill Description */}
-              <p className="text-slate-400 text-center text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
-                {skill.description}
-              </p>
-
-              {/* Hover Effect Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-
-              {/* Animated Border */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 rounded-2xl border border-accent/20 animate-pulse" />
+              <div className="flex flex-col gap-4 sm:gap-5">
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    variants={appearVariants}
+                    className="flex items-center gap-3 sm:gap-4"
+                  >
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-2xl text-white">
+                      <skill.icon />
+                    </div>
+                    <div className="flex flex-col">
+                      <h4 className="text-base sm:text-lg font-medium text-white">
+                        {skill.title}
+                      </h4>
+                      <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

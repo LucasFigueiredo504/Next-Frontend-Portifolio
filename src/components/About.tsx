@@ -1,65 +1,69 @@
 "use client";
 import Image from "next/image";
 import LaptopImage from "../assets/laptop.png";
-import { useIsVisible } from "@/hook/useIsVisible";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import picture from "../assets/picture.webp";
 
 export function About() {
-  const sectionRef = useRef(null);
-  const isVisible = useIsVisible(sectionRef);
+  // Animation variants for subtle appear effect
+  const appearVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   return (
     <section
-      ref={sectionRef}
-      className="w-full max-w-6xl py-24 md:py-32 bg-background text-primary"
+      className="w-full max-w-6xl py-16 md:py-24 lg:py-32 bg-background text-primary"
       id="about"
     >
-      <div
-        className={`container mx-auto px-6 transition-all duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="mb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header with animation */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={appearVariants}
+          className="mb-12 md:mb-16"
+        >
           <h2
-            className="text-4xl font-medium tracking-tight"
+            className="text-3xl sm:text-4xl font-medium tracking-tight"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
             Who am I
           </h2>
-          <div className="w-24 h-1 bg-accent mt-4 rounded-full" />
-        </div>
+          <div className="w-20 sm:w-24 h-1 bg-accent mt-3 sm:mt-4 rounded-full" />
+        </motion.div>
 
-        <div className="flex flex-col gap-24">
-          <div
-            className={`grid grid-cols-2 items-center justify-center gap-8 transition-all ease-out duration-1000 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
+        <div className="flex flex-col gap-16 md:gap-24">
+          {/* First Section: Image + Text */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={appearVariants}
+            className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-6 md:gap-8"
           >
-            {/* Left: Image */}
-            <div className="flex-shrink-0">
-              <div className="flex flex-col gap-6 mt-10 md:mt-0">
-                <div className="">
+            {/* Image */}
+            <div className="flex-shrink-0 order-1 md:order-none">
+              <div className="flex flex-col gap-6 mt-6 md:mt-0">
+                <div className="mx-auto">
                   <Image
                     src={picture || "/placeholder.svg"}
                     alt="Lucas Emanoel"
-                    className="w-96 h-96  object-cover rounded-2xl"
+                    className="w-full max-w-[300px] sm:max-w-[360px] h-auto rounded-2xl object-cover"
+                    width={360}
+                    height={360}
                   />
                 </div>
-                {/* <a
-                  href="/files/curriculo.pdf"
-                  download
-                  className="text-lg font-semibold text-background bg-accent rounded-full py-3 px-10 transition-transform transform hover:scale-105 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
-                >
-                  Download CV
-                </a> */}
               </div>
             </div>
 
-            {/* Right: Text Content */}
-            <div className="max-w-2xl text-lg text-slate-300 text-left space-y-4 leading-8">
+            {/* Text Content */}
+            <div className="max-w-2xl text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8 order-2 md:order-none">
               <p>
                 My journey into technology began in 2018, driven by a passion
                 for the infinite possibilities it unlocks. I started with C#
@@ -80,16 +84,18 @@ export function About() {
                 reality.
               </p>
             </div>
-          </div>{" "}
-          <div
-            className={`grid grid-cols-2 items-center justify-center gap-8 transition-all ease-out duration-1000 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
+          </motion.div>
+
+          {/* Second Section: Text + Image */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={appearVariants}
+            className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-6 md:gap-8"
           >
-            {/* Right: Text Content */}
-            <div className="max-w-2xl text-lg text-slate-300 text-left space-y-4 leading-8">
+            {/* Text Content */}
+            <div className="max-w-2xl text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8 order-2 md:order-none">
               <p>
                 Driven by the desire to create and learn new things, I became a{" "}
                 <strong className="text-accent font-semibold">
@@ -105,15 +111,17 @@ export function About() {
               </p>
             </div>
 
-            {/* Left: Image */}
-            <div className="flex-shrink-0">
+            {/* Image */}
+            <div className="flex-shrink-0 order-1 md:order-none">
               <Image
                 src={LaptopImage}
                 alt="Laptop with code"
-                className="w-[350px] lg:w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                width={450}
+                height={300}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
