@@ -3,10 +3,29 @@ import { Github, Linkedin } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary">
-      {/* Aurora Background Effect */}
-      <div className="absolute inset-0 -z-1">
+      {/* Aurora Background Effect with Dot Mask */}
+      <div
+        className="absolute inset-0 -z-1"
+        style={{
+          maskImage: `radial-gradient(circle, #0d1117 3.5px, transparent 5px)`,
+          maskSize: "10px 10px",
+          WebkitMaskImage: `radial-gradient(circle, #0d1117 3.5px, transparent 5px)`,
+          WebkitMaskSize: "10px 10px",
+        }}
+      >
+        {/* Aurora layers */}
         <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
         <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
+
+        {/* Additional fade mask for edges */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 0%, #0d1117 100%)",
+            mixBlendMode: "multiply",
+          }}
+        />
       </div>
 
       <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-4">
