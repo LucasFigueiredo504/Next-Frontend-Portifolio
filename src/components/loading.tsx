@@ -34,7 +34,7 @@ export function LoadingScreen() {
         <div
           key={i}
           className={`h-full bg-background transition-transform ${originClass} border-1 border-white/20 ${
-            isAnimating ? "scale-y-0" : "scale-y-100"
+            isAnimating ? "scale-y-0 scale-x-100" : "scale-y-100 scale-x-100"
           }`}
           style={{
             width: "5%",
