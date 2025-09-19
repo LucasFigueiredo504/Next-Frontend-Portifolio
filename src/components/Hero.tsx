@@ -2,40 +2,41 @@ import { Github, Linkedin } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary">
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary ">
       {/* Aurora Background Effect with Dot Mask */}
-      <div
+      {/* <div
         className="absolute inset-0 -z-1"
         style={{
-          maskImage: `radial-gradient(circle, #0d1117 3.5px, transparent 5px)`,
+          maskImage: `radial-gradient(circle, black 3.5px, transparent 5px)`,
           maskSize: "10px 10px",
-          WebkitMaskImage: `radial-gradient(circle, #0d1117 3.5px, transparent 5px)`,
+          WebkitMaskImage: `radial-gradient(circle, black 3.5px, transparent 5px)`,
           WebkitMaskSize: "10px 10px",
+          background: "transparent",
         }}
-      >
-        {/* Aurora layers */}
-        <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
-        <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
+      > */}
+      {/* Aurora layers */}
+      <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
+      <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-15s]" />
 
-        {/* Additional fade mask for edges */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, transparent 0%, #0d1117 100%)",
-            mixBlendMode: "multiply",
-          }}
-        />
-      </div>
+      {/* Additional fade mask for edges */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 100%, #0d1117 90%)",
+          mixBlendMode: "multiply",
+        }}
+      />
+      {/* </div> */}
 
       <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-4">
         {/* Left: Text Content */}
         <div className="flex flex-col gap-1 text-center md:text-left md:items-start">
-          <h1 className="text-5xl md:text-3xl font-light tracking-tight text-accent">
+          <h1 className="text-xl md:text-3xl font-light tracking-tight text-accent">
             Lucas Emanoel
           </h1>
           <p
-            className="text-2xl md:text-7xl font-medium tracking-tight"
+            className="text-5xl md:text-7xl font-medium tracking-tight"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
             Web & Game Developer
@@ -67,13 +68,7 @@ export function Hero() {
 
         {/* Right: Image and CTA */}
         {/* <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
-          <div className="overflow-hidden rounded-full border-accent/50 border-2">
-            <Image
-              src={picture || "/placeholder.svg"}
-              alt="Lucas Emanoel"
-              className="w-64 h-64 md:w-80 md:h-80  object-cover "
-            />
-          </div>
+          
           <a
             href="/files/curriculo.pdf"
             download
