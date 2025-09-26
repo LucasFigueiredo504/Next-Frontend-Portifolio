@@ -1,8 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import TextType from "./TextType";
 
 export function LoadingScreen() {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showHello, setShowHello] = useState(true);
+  const [fadeHello, setFadeHello] = useState(false);
   const [randomValues, setRandomValues] = useState<number[]>([]);
 
   useEffect(() => {
@@ -12,11 +15,26 @@ export function LoadingScreen() {
     );
     setRandomValues(values);
 
-    const timer = setTimeout(() => {
-      setIsAnimating(true);
-    }, 100);
+    // Start fading hello text after 1.3 seconds
+    const fadeTimer = setTimeout(() => {
+      setFadeHello(true);
+    }, 1300);
 
-    return () => clearTimeout(timer);
+    // Hide hello text after fade completes
+    const helloTimer = setTimeout(() => {
+      setShowHello(false);
+    }, 1500);
+
+    // Start strips animation after hello text disappears (add small delay)
+    const animationTimer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 1500);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(helloTimer);
+      clearTimeout(animationTimer);
+    };
   }, []);
 
   const renderStrips = (startIndex: number, originClass: string) => {
@@ -33,7 +51,7 @@ export function LoadingScreen() {
       return (
         <div
           key={i}
-          className={`h-full bg-background transition-transform ${originClass} border-1 border-white/20 ${
+          className={`h-full bg-background transition-transform ${originClass} ${
             isAnimating ? "scale-y-0 scale-x-100" : "scale-y-100 scale-x-100"
           }`}
           style={{
@@ -49,12 +67,25 @@ export function LoadingScreen() {
 
   return (
     <div className="fixed pointer-events-none inset-0 flex flex-col justify-between h-screen w-screen z-50">
-      <div className="flex flex-1">
-        {renderStrips(0, "origin-top border-b")}
-      </div>
-      <div className="flex flex-1">
-        {renderStrips(20, "origin-bottom border-t")}
-      </div>
+      {/* Hello text overlay */}
+      {showHello && (
+        <div
+          className={`absolute inset-0 flex items-center justify-center z-10 text-xl uppercase transition-opacity duration-500 ${
+            fadeHello ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <TextType
+            text={["hello"]}
+            typingSpeed={25}
+            pauseDuration={1500}
+            showCursor={false}
+            cursorCharacter="|"
+          />
+        </div>
+      )}
+
+      <div className="flex flex-1">{renderStrips(0, "origin-top ")}</div>
+      <div className="flex flex-1">{renderStrips(20, "origin-bottom ")}</div>
     </div>
   );
 }

@@ -56,6 +56,24 @@ export function Projects() {
     setActiveProjectIndex(topmostIndex);
   }, []);
 
+  // Control video playback based on active project
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === activeProjectIndex) {
+          // Play video when it becomes active
+          video.play().catch(() => {
+            // Handle play promise rejection silently
+          });
+        } else {
+          // Pause and reset video when it becomes inactive
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  }, [activeProjectIndex]);
+
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video && video.readyState >= 3) {
@@ -187,7 +205,6 @@ export function Projects() {
                           ref={(el: HTMLVideoElement | null) => {
                             videoRefs.current[i] = el;
                           }}
-                          autoPlay
                           muted
                           loop
                           playsInline

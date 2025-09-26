@@ -20,7 +20,7 @@ export function About() {
       className="w-full max-w-6xl py-16 md:py-24 lg:py-32 bg-background text-primary"
       id="about"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         {/* Header with animation */}
         <motion.div
           initial="hidden"
@@ -54,7 +54,7 @@ export function About() {
                   <Image
                     src={picture || "/placeholder.svg"}
                     alt="Lucas Emanoel"
-                    className="w-full max-w-[300px] sm:max-w-[360px] h-auto rounded-2xl object-cover"
+                    className="w-[300px] sm:w-[360px] h-[300px] sm:h-[360px] rounded-2xl object-cover"
                     width={360}
                     height={360}
                   />
@@ -116,9 +116,9 @@ export function About() {
               <Image
                 src={LaptopImage}
                 alt="Laptop with code"
-                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
-                width={450}
-                height={300}
+                className="w-[280px] sm:w-[350px] md:w-[400px] h-[280px] sm:h-[350px] md:h-[400px] mx-auto rounded-2xl object-cover drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                width={400}
+                height={400}
               />
             </div>
           </motion.div>

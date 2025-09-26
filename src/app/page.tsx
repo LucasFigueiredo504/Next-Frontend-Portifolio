@@ -8,13 +8,10 @@ import { Contact } from "../components/Contact";
 import { Projects } from "../components/Projects";
 import { Footer } from "@/components/Footer";
 import { LoadingScreen } from "@/components/loading";
-import { Header } from "@/components/HeaderScroll";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen w-full flex-col items-center text-zinc-200 scroll">
-      {/* <Navbar /> */}
-      <Header />
       <LoadingScreen />
       <Hero />
       <Projects />

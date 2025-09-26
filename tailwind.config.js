@@ -45,7 +45,7 @@ module.exports = {
       animation: {
         cursor: "0.4s step-end infinite alternate",
         typing: "2s steps()",
-        aurora: "aurora 30s linear infinite",
+        aurora: "aurora 25s linear infinite",
         "slide-up": "slide-up 1s ease-out forwards",
       },
     },
