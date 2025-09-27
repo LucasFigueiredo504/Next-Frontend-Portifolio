@@ -12,7 +12,6 @@ import { LoadingScreen } from "@/components/loading";
 export default function Home() {
   return (
     <main className="relative flex min-h-screen w-full flex-col items-center text-zinc-200 scroll">
-      {/* <Navbar /> */}
       <LoadingScreen />
       <Hero />
       <Projects />
