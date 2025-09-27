@@ -112,9 +112,9 @@ export function Projects() {
                       {activeProject.content}
                     </p>
                   )}
-                  {(activeProject.githubUrl || activeProject.link) && (
+                  {activeProject.link && (
                     <div className="flex gap-4">
-                      {activeProject.githubUrl && (
+                      {/* {activeProject.githubUrl && (
                         <a
                           href={activeProject.githubUrl}
                           target="_blank"
@@ -123,7 +123,7 @@ export function Projects() {
                         >
                           <Github size={16} />
                         </a>
-                      )}
+                      )} */}
                       {activeProject.link && (
                         <a
                           href={activeProject.link}
