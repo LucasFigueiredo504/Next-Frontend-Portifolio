@@ -75,7 +75,7 @@ export function LoadingScreen() {
           }`}
         >
           <TextType
-            text={["hello"]}
+            text={["hello!"]}
             typingSpeed={25}
             pauseDuration={1500}
             showCursor={false}

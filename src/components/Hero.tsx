@@ -1,4 +1,5 @@
 import { Github, Linkedin } from "lucide-react";
+import TextType from "./TextType";
 
 export function Hero() {
   return (
@@ -35,12 +36,21 @@ export function Hero() {
           <h1 className="text-xl md:text-3xl font-light tracking-tight text-accent">
             Lucas Emanoel
           </h1>
-          <p
+          <TextType
+            text={["Web & Game Developer"]}
+            typingSpeed={50}
+            pauseDuration={1500}
+            showCursor={false}
+            cursorCharacter="|"
+            initialDelay={1500}
+            className="text-5xl md:text-7xl font-medium tracking-tight"
+          />
+          {/*  <p
             className="text-5xl md:text-7xl font-medium tracking-tight"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
             Web & Game Developer
-          </p>
+          </p> */}
           <p className="max-w-xl text-lg text-slate-300 mt-2">
             I build elegant and responsive web applications, turning complex
             problems into beautiful, intuitive digital experiences.
