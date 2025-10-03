@@ -1,6 +1,3 @@
-import Image from "next/image";
-//components
-
 import { About } from "../components/About";
 import { Hero } from "../components/Hero";
 import { Skills } from "../components/Skills";

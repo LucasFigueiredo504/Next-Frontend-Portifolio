@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { easeOut, motion } from "motion/react";
 import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
 
 export function Footer() {
@@ -44,7 +44,7 @@ export function Footer() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, easeOut },
     },
   };
 

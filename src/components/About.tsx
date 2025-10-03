@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import LaptopImage from "../assets/laptop.png";
-import { motion } from "motion/react";
+import { easeOut, motion } from "motion/react";
 import picture from "../assets/picture.webp";
 
 export function About() {
@@ -11,7 +11,7 @@ export function About() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, easeOut },
     },
   };
 
