@@ -33,9 +33,29 @@ export function Hero() {
       <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-4">
         {/* Left: Text Content */}
         <div className="flex flex-col gap-1 text-center md:text-left md:items-start">
-          <h1 className="text-xl md:text-3xl font-light tracking-tight text-accent">
-            Lucas Emanoel
-          </h1>
+          <div className="flex items-center justify-center md:justify-start gap-8">
+            <h1 className="text-xl md:text-3xl font-light tracking-tight text-accent">
+              Lucas Emanoel
+            </h1>
+            <div className="flex gap-3">
+              <a
+                href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-accent transition-colors"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://github.com/lucastheldl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-accent transition-colors"
+              >
+                <Github size={24} />
+              </a>
+            </div>
+          </div>
           <TextType
             text={["Web & Game Developer"]}
             typingSpeed={50}
@@ -55,38 +75,18 @@ export function Hero() {
             I build elegant and responsive web applications, turning complex
             problems into beautiful, intuitive digital experiences.
           </p>
-          {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-4 mt-6">
+
+          {/* CTA Button */}
+          <div className="mt-6">
             <a
-              href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-accent transition-colors"
+              href="/files/curriculo.pdf"
+              download
+              className="inline-block text-lg font-semibold text-background bg-accent rounded-full py-3 px-10 transition-transform transform hover:scale-105 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
             >
-              <Linkedin size={28} />
-            </a>
-            <a
-              href="https://github.com/lucastheldl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-accent transition-colors"
-            >
-              <Github size={28} />
+              Download CV
             </a>
           </div>
         </div>
-
-        {/* Right: Image and CTA */}
-        {/* <div className="flex flex-col items-center gap-6 mt-10 md:mt-0">
-          
-          <a
-            href="/files/curriculo.pdf"
-            download
-            className="text-lg font-semibold text-background bg-accent rounded-full py-3 px-10 transition-transform transform hover:scale-105 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
-          >
-            Download CV
-          </a>
-        </div> */}
       </div>
     </section>
   );
