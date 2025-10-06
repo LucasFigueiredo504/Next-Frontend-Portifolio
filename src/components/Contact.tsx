@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "motion/react";
+import { easeInOut, motion } from "motion/react";
 import {
   Mail,
   Send,
@@ -75,7 +75,7 @@ export function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, easeInOut },
     },
   };
 
