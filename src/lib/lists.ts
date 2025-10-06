@@ -15,14 +15,14 @@ import {
   SiAdobephotoshop,
   SiBlender,
 } from "react-icons/si";
+import { ComponentType } from "react";
 
 export interface Skill {
   title: string;
   description: string;
-  icon: IconType; // use a React component instead of string
+  icon: ComponentType;
   category: "Frontend" | "Backend & Databases" | "Game Development";
 }
-
 export const skillsList: Skill[] = [
   // Frontend
   {
