@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://next-frontend-portifolio.vercel.app/",
+  "items": [
+    {
+      "name": "hello-button",
+      "type": "registry:component",
+      "title": "Hello World",
+      "description": "A simple hello world button.",
+      "files": [
+        {
+          "path": "registry/base/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
