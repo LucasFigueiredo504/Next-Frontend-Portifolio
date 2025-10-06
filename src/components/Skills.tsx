@@ -80,25 +80,28 @@ export function Skills() {
                 {category}
               </h3>
               <div className="flex flex-col gap-4 sm:gap-5">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    variants={appearVariants}
-                    className="flex items-center gap-3 sm:gap-4"
-                  >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-2xl text-white">
-                      <skill.icon />
-                    </div>
-                    <div className="flex flex-col">
-                      <h4 className="text-base sm:text-lg font-medium text-white">
-                        {skill.title}
-                      </h4>
-                      <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs">
-                        {skill.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                {skills.map((skill, index) => {
+                  const Icon = skill.icon; // Capitalize the component
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={appearVariants}
+                      className="flex items-center gap-3 sm:gap-4"
+                    >
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-2xl text-white">
+                        <Icon /> {/* Use the capitalized component */}
+                      </div>
+                      <div className="flex flex-col">
+                        <h4 className="text-base sm:text-lg font-medium text-white">
+                          {skill.title}
+                        </h4>
+                        <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}

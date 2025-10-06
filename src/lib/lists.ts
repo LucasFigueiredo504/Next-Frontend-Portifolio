@@ -20,109 +20,108 @@ import { ComponentType } from "react";
 export interface Skill {
   title: string;
   description: string;
-  icon: ComponentType;
+  icon: ComponentType; // Keep as ComponentType
   category: "Frontend" | "Backend & Databases" | "Game Development";
 }
+
 export const skillsList: Skill[] = [
   // Frontend
   {
     title: "React",
     description:
       "Building dynamic, component-based user interfaces with React.",
-    icon: SiReact,
+    icon: SiReact as ComponentType, // Type assertion
     category: "Frontend",
   },
   {
     title: "React Native",
     description:
       "Developing mobile applications for iOS and Android using React Native.",
-    icon: SiReact,
+    icon: SiReact as ComponentType, // Type assertion
     category: "Frontend",
   },
   {
     title: "Next.js",
     description:
       "Creating server-side rendered and statically generated web applications with Next.js.",
-    icon: SiNextdotjs,
+    icon: SiNextdotjs as ComponentType, // Type assertion
     category: "Frontend",
   },
   {
     title: "TypeScript",
     description:
       "Enhancing JavaScript with static typing for scalable and maintainable applications.",
-    icon: SiTypescript,
+    icon: SiTypescript as ComponentType, // Type assertion
     category: "Frontend",
   },
   {
     title: "Tailwind CSS",
     description:
       "Crafting responsive, utility-first designs quickly with Tailwind CSS.",
-    icon: SiTailwindcss,
+    icon: SiTailwindcss as ComponentType, // Type assertion
     category: "Frontend",
   },
-
   // Backend & Databases
   {
     title: "Node.js",
     description:
       "Building scalable server-side applications and APIs using Node.js runtime.",
-    icon: SiNodedotjs,
+    icon: SiNodedotjs as ComponentType, // Type assertion
     category: "Backend & Databases",
   },
   {
     title: "Express",
     description:
       "Creating robust APIs and server-side logic with the Express framework.",
-    icon: SiExpress,
+    icon: SiExpress as ComponentType, // Type assertion
     category: "Backend & Databases",
   },
   {
     title: "Fastify",
     description:
       "Developing high-performance backend services using the Fastify framework.",
-    icon: SiFastify,
+    icon: SiFastify as ComponentType, // Type assertion
     category: "Backend & Databases",
   },
   {
     title: "PostgreSQL",
     description:
       "Managing relational databases with advanced querying and strong data integrity.",
-    icon: SiPostgresql,
+    icon: SiPostgresql as ComponentType, // Type assertion
     category: "Backend & Databases",
   },
   {
     title: "MongoDB",
     description:
       "Handling flexible, document-oriented NoSQL databases for scalable data storage.",
-    icon: SiMongodb,
+    icon: SiMongodb as ComponentType, // Type assertion
     category: "Backend & Databases",
   },
-
   // Game Development
   {
     title: "Unity",
     description: "Developing immersive 2D and 3D games using Unity and C#.",
-    icon: SiUnity,
+    icon: SiUnity as ComponentType, // Type assertion
     category: "Game Development",
   },
   {
     title: "C#",
     description: "Programming game logic and mechanics with C# in Unity.",
-    icon: SiSharp,
+    icon: SiSharp as ComponentType, // Type assertion
     category: "Game Development",
   },
   {
     title: "Photoshop",
     description:
       "Creating and editing graphics, textures, and visual assets for games.",
-    icon: SiAdobephotoshop,
+    icon: SiAdobephotoshop as ComponentType, // Type assertion
     category: "Game Development",
   },
   {
     title: "Blender",
     description:
       "Modeling, animating, and rendering 3D assets for games using Blender.",
-    icon: SiBlender,
+    icon: SiBlender as ComponentType, // Type assertion
     category: "Game Development",
   },
 ];
