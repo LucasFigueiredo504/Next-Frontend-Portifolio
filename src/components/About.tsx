@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import LaptopImage from "../assets/laptop.png";
 import { easeOut, motion } from "motion/react";
+import gamesImage from "../assets/games.jpg";
 import picture from "../assets/picture.webp";
 
 export function About() {
@@ -39,31 +39,16 @@ export function About() {
         </motion.div>
 
         <div className="flex flex-col gap-16 md:gap-24">
-          {/* First Section: Image + Text */}
+          {/* First Section: Text + Image */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={appearVariants}
-            className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-6 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12"
           >
-            {/* Image */}
-            <div className="flex-shrink-0 order-1 md:order-none">
-              <div className="flex flex-col gap-6 mt-6 md:mt-0">
-                <div className="mx-auto">
-                  <Image
-                    src={picture || "/placeholder.svg"}
-                    alt="Lucas Emanoel"
-                    className="w-[300px] sm:w-[360px] h-[300px] sm:h-[360px] rounded-2xl object-cover"
-                    width={360}
-                    height={360}
-                  />
-                </div>
-              </div>
-            </div>
-
             {/* Text Content */}
-            <div className="max-w-2xl text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8 order-2 md:order-none">
+            <div className="text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8 order-2 md:order-1">
               <p>
                 My journey into technology began in 2018, driven by a passion
                 for the infinite possibilities it unlocks. I started with C#
@@ -84,18 +69,40 @@ export function About() {
                 reality.
               </p>
             </div>
+
+            {/* Image */}
+            <div className="flex justify-center md:justify-start order-1 md:order-2">
+              <Image
+                src={picture || "/placeholder.svg"}
+                alt="Lucas Emanoel"
+                className="w-full max-w-[600px] h-[280px] sm:h-[320px] md:h-[360px] rounded-2xl object-cover"
+                width={450}
+                height={360}
+              />
+            </div>
           </motion.div>
 
-          {/* Second Section: Text + Image */}
+          {/* Second Section: Image + Text */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={appearVariants}
-            className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-6 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12"
           >
+            {/* Image */}
+            <div className="flex justify-center md:justify-end">
+              <Image
+                src={gamesImage}
+                alt="Laptop with code"
+                className="w-full max-w-[600px] h-[280px] sm:h-[320px] md:h-[360px] rounded-2xl object-cover"
+                width={450}
+                height={360}
+              />
+            </div>
+
             {/* Text Content */}
-            <div className="max-w-2xl text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8 order-2 md:order-none">
+            <div className="text-base sm:text-lg text-slate-300 text-left space-y-4 leading-7 sm:leading-8">
               <p>
                 Driven by the desire to create and learn new things, I became a{" "}
                 <strong className="text-accent font-semibold">
@@ -109,17 +116,6 @@ export function About() {
                 <strong className="text-accent font-semibold">Lucas</strong> and
                 I look forward to working with a passionate team!
               </p>
-            </div>
-
-            {/* Image */}
-            <div className="flex-shrink-0 order-1 md:order-none">
-              <Image
-                src={LaptopImage}
-                alt="Laptop with code"
-                className="w-[280px] sm:w-[350px] md:w-[400px] h-[280px] sm:h-[350px] md:h-[400px] mx-auto rounded-2xl object-cover drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
-                width={400}
-                height={400}
-              />
             </div>
           </motion.div>
         </div>
