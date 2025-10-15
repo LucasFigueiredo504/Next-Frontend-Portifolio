@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Catamaran, Roboto_Flex as Roboto } from "next/font/google";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${catamaran.variable} font-sans bg-background overflow-x-hidden`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -12,10 +12,11 @@ import {
   CheckCircle,
   AlertCircle,
   X,
+  Linkedin,
+  Github,
 } from "lucide-react";
-import LaptopImage from "../assets/laptop.png";
-import Image from "next/image";
 import { SubmitNotionForm } from "./actions/notion";
+import { toast } from "sonner";
 
 // Zod schema for form validation
 const contactSchema = z.object({
@@ -52,6 +53,16 @@ export function Contact() {
       if (result.success) {
         console.log("Form submitted:", data);
         setSubmissionState("success");
+        toast.success("Message sent successfully!", {
+          style: {
+            background: "rgb(139 92 246 / 0.1)",
+            border: "1px solid rgb(139 92 246 / 0.3)",
+            borderRadius: "1rem",
+            color: "rgb(196 181 253)",
+            backdropFilter: "blur(8px)",
+          },
+          duration: 4000,
+        });
         reset();
       } else {
         setSubmissionState("error");
@@ -109,29 +120,6 @@ export function Contact() {
             variants={appearVariants}
             className="w-full max-w-lg mx-auto md:mx-0 order-2 md:order-none"
           >
-            {/* Success Notification */}
-            {submissionState === "success" && (
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={appearVariants}
-                className="mb-6 p-4 bg-accent/10 border border-accent/30 rounded-2xl flex items-center justify-between text-accent"
-              >
-                <div className="flex items-center gap-3">
-                  <CheckCircle size={20} />
-                  <span>
-                    Message sent successfully! I'll get back to you soon.
-                  </span>
-                </div>
-                <button
-                  onClick={dismissNotification}
-                  className="text-accent/70 hover:text-accent transition-colors"
-                >
-                  <X size={16} />
-                </button>
-              </motion.div>
-            )}
-
             {/* Error Notification */}
             {submissionState === "error" && (
               <motion.div
@@ -241,7 +229,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Contact Information */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -249,14 +237,52 @@ export function Contact() {
             variants={appearVariants}
             className="flex items-center justify-center md:justify-end order-1 md:order-none"
           >
-            <div className="relative">
-              <Image
-                src={LaptopImage}
-                alt="Laptop workspace"
-                className="w-full max-w-[280px] sm:max-w-[360px] md:max-w-[450px] lg:max-w-[500px] h-auto object-cover rounded-2xl"
-                width={500}
-                height={300}
-              />
+            <div className="space-y-8 max-w-md w-full">
+              {/* Email */}
+              <div className="space-y-3 p-6 bg-white/5 border border-white/10 rounded-2xl  transition-colors">
+                <h3 className="text-lg font-medium text-primary flex items-center gap-2">
+                  <Mail size={20} className="text-accent" />
+                  Email
+                </h3>
+                <a
+                  href="mailto:lucasfigueiredo.emanoel@gmail.com"
+                  className="text-slate-400 hover:text-accent transition-colors block break-all"
+                >
+                  lucasfigueiredo.emanoel@gmail.com
+                </a>
+              </div>
+
+              {/* LinkedIn */}
+              <div className="space-y-3 p-6 bg-white/5 border border-white/10 rounded-2xl  transition-colors">
+                <h3 className="text-lg font-medium text-primary flex items-center gap-2">
+                  <Linkedin size={20} className="text-accent" />
+                  LinkedIn
+                </h3>
+                <a
+                  href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-accent transition-colors block"
+                >
+                  linkedin.com/in/lucas-emanoel-figueiredo-da-silva
+                </a>
+              </div>
+
+              {/* GitHub */}
+              <div className="space-y-3 p-6 bg-white/5 border border-white/10 rounded-2xl  transition-colors">
+                <h3 className="text-lg font-medium text-primary flex items-center gap-2">
+                  <Github size={20} className="text-accent" />
+                  GitHub
+                </h3>
+                <a
+                  href="https://github.com/lucastheldl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-accent transition-colors block"
+                >
+                  @LucasFigueiredo504
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

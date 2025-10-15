@@ -149,7 +149,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
                         >
-                          Live Demo
+                          Live
                           <ArrowUpRight size={16} />
                         </a>
                       )}

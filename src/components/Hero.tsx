@@ -63,7 +63,7 @@ export function Hero() {
             showCursor={false}
             cursorCharacter="|"
             initialDelay={1500}
-            className="text-5xl md:text-7xl font-medium tracking-tight"
+            className="text-5xl md:text-7xl font-thin tracking-tight"
           />
           {/*  <p
             className="text-5xl md:text-7xl font-medium tracking-tight"
