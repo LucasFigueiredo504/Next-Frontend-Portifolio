@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { easeOut, motion } from "motion/react";
 import { skillsList, Skill } from "@/lib/lists";
 
@@ -81,7 +80,7 @@ export function Skills() {
               </h3>
               <div className="flex flex-col gap-4 sm:gap-5">
                 {skills.map((skill, index) => {
-                  const Icon = skill.icon; // Capitalize the component
+                  const Icon = skill.icon;
                   return (
                     <motion.div
                       key={index}
@@ -89,7 +88,7 @@ export function Skills() {
                       className="flex items-center gap-3 sm:gap-4"
                     >
                       <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-2xl text-white">
-                        <Icon /> {/* Use the capitalized component */}
+                        <Icon />
                       </div>
                       <div className="flex flex-col">
                         <h4 className="text-base sm:text-lg font-medium text-white">

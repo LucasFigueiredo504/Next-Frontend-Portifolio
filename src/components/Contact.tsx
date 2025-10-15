@@ -235,7 +235,7 @@ export function Contact() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={appearVariants}
-            className="flex items-center justify-center md:justify-end order-1 md:order-none"
+            className="flex items-center justify-center md:justify-end order-2 md:order-none pt-12 md:pt-0"
           >
             <div className="space-y-8 max-w-md w-full">
               {/* Email */}
