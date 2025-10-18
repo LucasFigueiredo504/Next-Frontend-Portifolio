@@ -4,34 +4,12 @@ import { easeOut, motion } from "motion/react";
 import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
 
 export function Footer() {
-  const [currentTime, setCurrentTime] = useState("");
   const [currentYear, setCurrentYear] = useState(2025);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Set initial values
     const now = new Date();
     setCurrentYear(now.getFullYear());
-    setCurrentTime(
-      now.toLocaleTimeString("en-US", {
-        hour12: false,
-        timeZoneName: "short",
-      })
-    );
-    setMounted(true);
-
-    // Update time every second
-    const interval = setInterval(() => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString("en-US", {
-          hour12: false,
-          timeZoneName: "short",
-        })
-      );
-    }, 1000);
-
-    return () => clearInterval(interval);
   }, []);
 
   const scrollToTop = () => {
@@ -159,29 +137,24 @@ export function Footer() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={appearVariants}
-          className="flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="flex flex-col gap-4"
         >
-          <div className="text-slate-400 text-xs sm:text-sm">
-            © {currentYear} Lucas Emanoel. All rights reserved.
-          </div>
-
-          <div className="text-slate-400 text-xs sm:text-sm">
-            <span className="uppercase tracking-wide">Local Time</span>
-            <div className="text-accent font-mono">
-              {mounted ? currentTime : "--:--:-- ---"}
+          <div className="flex justify-between items-center">
+            <div className="text-slate-400 text-xs sm:text-sm">
+              © {currentYear} Lucas Emanoel. All rights reserved.
             </div>
-          </div>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent/50 text-slate-400 hover:text-accent transition-all group"
-            aria-label="Back to top"
-          >
-            <ArrowUp
-              size={18}
-              className="group-hover:-translate-y-1 transition-transform"
-            />
-          </button>
+            <button
+              onClick={scrollToTop}
+              className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent/50 text-slate-400 hover:text-accent transition-all group"
+              aria-label="Back to top"
+            >
+              <ArrowUp
+                size={18}
+                className="group-hover:-translate-y-1 transition-transform"
+              />
+            </button>
+          </div>
         </motion.div>
       </div>
     </footer>
