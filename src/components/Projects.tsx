@@ -21,6 +21,7 @@ export function Projects() {
     new Array(projectList.length).fill(false)
   );
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false); // New state to track desktop view
 
   const handleVideoLoaded = (index: number) => {
     setVideosLoaded((prev) => {
@@ -30,8 +31,24 @@ export function Projects() {
     });
   };
 
+  // Helper: highlight project titles inside a description
+  const highlightTitles = (text: string): string => {
+    if (!text) return text;
+
+    let result = text;
+    projectList.forEach((project) => {
+      if (!project.title) return;
+
+      const safeTitle = project.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`\\b(${safeTitle})\\b`, "gi");
+      result = result.replace(regex, `<span class="text-accent">$1</span>`);
+    });
+
+    return result;
+  };
+
   const updateActiveProject = useCallback(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !isDesktop) return; // Only update on desktop
 
     let topmostIndex = 0;
     let minTopDistance = Infinity;
@@ -54,6 +71,11 @@ export function Projects() {
     });
 
     setActiveProjectIndex(topmostIndex);
+  }, [isDesktop]); // Add isDesktop as a dependency
+
+  // Check if the view is desktop (lg breakpoint)
+  const checkIsDesktop = useCallback(() => {
+    setIsDesktop(window.innerWidth >= 1024); // Tailwind's lg breakpoint is 1024px
   }, []);
 
   // Control video playback based on active project
@@ -61,12 +83,8 @@ export function Projects() {
     videoRefs.current.forEach((video, index) => {
       if (video) {
         if (index === activeProjectIndex) {
-          // Play video when it becomes active
-          video.play().catch(() => {
-            // Handle play promise rejection silently
-          });
+          video.play().catch(() => {});
         } else {
-          // Pause and reset video when it becomes inactive
           video.pause();
           video.currentTime = 0;
         }
@@ -75,6 +93,9 @@ export function Projects() {
   }, [activeProjectIndex]);
 
   useEffect(() => {
+    // Initial check for desktop view
+    checkIsDesktop();
+
     videoRefs.current.forEach((video, index) => {
       if (video && video.readyState >= 3) {
         handleVideoLoaded(index);
@@ -96,13 +117,21 @@ export function Projects() {
     updateActiveProject();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", updateActiveProject, { passive: true });
+    window.addEventListener(
+      "resize",
+      () => {
+        checkIsDesktop(); // Update isDesktop on resize
+        updateActiveProject();
+      },
+      { passive: true }
+    );
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkIsDesktop);
       window.removeEventListener("resize", updateActiveProject);
     };
-  }, [updateActiveProject]);
+  }, [updateActiveProject, checkIsDesktop]);
 
   const activeProject = projectList[activeProjectIndex];
 
@@ -126,22 +155,16 @@ export function Projects() {
               {activeProject ? (
                 <div className="space-y-6 opacity-100">
                   {activeProject.content && (
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      {activeProject.content}
-                    </p>
+                    <p
+                      className="text-lg text-gray-300 leading-relaxed"
+                      dangerouslySetInnerHTML={{
+                        __html: highlightTitles(activeProject.content),
+                      }}
+                    />
                   )}
+
                   {activeProject.link && (
                     <div className="flex gap-4">
-                      {/* {activeProject.githubUrl && (
-                        <a
-                          href={activeProject.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-                        >
-                          <Github size={16} />
-                        </a>
-                      )} */}
                       {activeProject.link && (
                         <a
                           href={activeProject.link}
@@ -193,7 +216,7 @@ export function Projects() {
                   i === activeProjectIndex ? "opacity-100" : "opacity-70"
                 }`}
               >
-                <div className="bg-accent/20 h-96 w-full flex justify-center items-center rounded-lg p-4">
+                <div className="bg-white/5 border border-white/10 h-96 w-full flex justify-center items-center rounded-lg p-4">
                   <div className="relative w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
                     {project.videoUrl ? (
                       <>
@@ -233,20 +256,13 @@ export function Projects() {
                     )}
                   </div>
                 </div>
-                <h3
-                  className={`text-xl font-thin transition-colors duration-300 ${
-                    i === activeProjectIndex ? "text-accent" : "text-gray-400"
-                  }`}
-                >
-                  {project.title}
-                </h3>
-                {/* Description for mobile screens */}
-                <div className="lg:hidden space-y-6">
-                  {project.content && (
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      {project.content}
-                    </p>
-                  )}
+                <div className="lg:hidden space-y-6 mt-6">
+                  <p
+                    className="text-lg text-gray-300 leading-relaxed"
+                    dangerouslySetInnerHTML={{
+                      __html: highlightTitles(project.content || ""), // Use project.content directly
+                    }}
+                  />
                   {(project.githubUrl || project.link) && (
                     <div className="flex gap-4">
                       {project.githubUrl && (

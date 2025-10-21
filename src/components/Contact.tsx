@@ -237,7 +237,7 @@ export function Contact() {
             variants={appearVariants}
             className="flex items-center justify-center md:justify-end order-2 md:order-none pt-12 md:pt-0"
           >
-            <div className="space-y-8 max-w-md w-full">
+            <div className="space-y-8 w-full">
               {/* Email */}
               <div className="space-y-3 p-6 bg-white/5 border border-white/10 rounded-2xl  transition-colors">
                 <h3 className="text-lg font-medium text-primary flex items-center gap-2">

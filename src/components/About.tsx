@@ -93,7 +93,7 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              custom={0}
+              custom={1}
               variants={imageVariants}
               className="absolute top-0 sm:top-4 lg:-top-4 right-0 w-[62%] sm:w-[60%] lg:w-[62%] h-[60%] sm:h-[62%] lg:h-[60%] z-10"
             >
@@ -110,7 +110,7 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              custom={1}
+              custom={0}
               variants={imageVariants}
               className="absolute top-8 sm:top-24 lg:-top-16 left-0 w-[59%] sm:w-[58%] lg:w-[59%] h-[59%] sm:h-[60%] lg:h-[59%] z-10"
             >
