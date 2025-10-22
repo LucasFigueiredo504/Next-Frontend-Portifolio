@@ -137,6 +137,8 @@ export const projectList = [
       "Typescript",
       "Tailwind",
       "Drizzle",
+      "Shadcn",
+      "Zustand",
     ],
     content:
       "Tickzi is a Brazilian ticketing platform that enables users to buy, transfer, and manage event tickets securely through a modern web and mobile interface",
@@ -153,7 +155,7 @@ export const projectList = [
     link: "https://www.globaldiscounting.com/",
     title: "Global Discounting",
     videoUrl: "/global-video.mp4",
-    technologies: ["Next.js", "Typescript", "Tailwind"],
+    technologies: ["Next.js", "Typescript", "Tailwind", "Shadcn"],
     content:
       "Global Discounting is a digital financial platform that provides companies with innovative solutions to unlock cash flow and manage licensing agreements efficiently.",
   },

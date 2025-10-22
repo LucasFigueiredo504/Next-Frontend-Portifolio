@@ -61,28 +61,26 @@ export function About() {
           {/* Text Content on Left */}
           <div className="text-base sm:text-lg text-slate-300 space-y-6 leading-relaxed order-2 lg:order-1 -mt-28 md:-mt-16 lg:mt-0">
             <p>
-              My journey into technology began in 2018 with{" "}
+              I began my journey in technology in 2018,{" "}
               <strong className="text-accent font-semibold">
-                Game Development
-              </strong>{" "}
-              in Unity, but my curiosity led me to{" "}
+                developing games
+              </strong>
+              , exploring creativity and interactive experiences that sparked my
+              passion for building.
+            </p>
+            <p>
+              In 2021, I shifted my focus to{" "}
               <strong className="text-accent font-semibold">
                 Web Development
-              </strong>{" "}
-              in 2021.
-            </p>
-            <p>
-              Since then, I've been honing my skills in modern{" "}
-              <strong className="text-accent font-semibold">
-                Frontend Technologies
               </strong>
-              , creating seamless user experiences with a keen eye for design.
+              , diving into crafting elegant websites and seamless web
+              experiences that people love to use.
             </p>
             <p>
-              My name is{" "}
-              <strong className="text-accent font-semibold">Lucas</strong>, and
-              I look forward to working with a passionate team to create amazing
-              digital experiences!
+              I’m <strong className="text-accent font-semibold">Lucas</strong>,
+              driven by curiosity, constantly learning, and excited to create
+              digital projects that combine design, functionality, and
+              innovation.
             </p>
           </div>
 
