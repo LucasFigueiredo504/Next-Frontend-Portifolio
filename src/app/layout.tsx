@@ -23,10 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <GoogleTagManager gtmId="GTM-WBN6DL78" />;
       <body
         className={`${roboto.variable} ${catamaran.variable} font-sans bg-background overflow-x-hidden`}
       >
+        <GoogleTagManager gtmId="GTM-WBN6DL78" />;
         <Providers>{children}</Providers>
       </body>
     </html>
