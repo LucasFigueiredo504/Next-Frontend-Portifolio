@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
+    "@next/third-parties": "^16.0.0",
     "@notionhq/client": "^4.0.2",
     "@types/node": "20.2.1",
     "@types/react": "19.1.11",
     "@types/react-dom": "19.1.7",
     "autoprefixer": "10.4.14",
+    "google": "link:@next/third-parties/google",
     "gsap": "^3.13.0",
     "lucide-react": "^0.225.0",
     "motion": "^12.23.12",

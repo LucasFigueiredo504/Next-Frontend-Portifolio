@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Catamaran, Roboto_Flex as Roboto } from "next/font/google";
 import { Providers } from "./providers";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  <GoogleTagManager gtmId="GTM-WBN6DL78" />;
   return (
     <html lang="pt-br">
       <body
