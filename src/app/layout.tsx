@@ -21,9 +21,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  <GoogleTagManager gtmId="GTM-WBN6DL78" />;
   return (
     <html lang="pt-br">
+      <GoogleTagManager gtmId="GTM-WBN6DL78" />;
       <body
         className={`${roboto.variable} ${catamaran.variable} font-sans bg-background overflow-x-hidden`}
       >
