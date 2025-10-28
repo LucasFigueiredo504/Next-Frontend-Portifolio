@@ -128,7 +128,7 @@ export const skillsList: Skill[] = [
 
 export const projectList = [
   {
-    link: "https://tickzi.com",
+    link: "https://tickzi.com.br",
     videoUrl: "tickzi-video.mp4",
     title: "Tickzi",
     technologies: [
