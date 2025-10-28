@@ -46,8 +46,9 @@ export function Projects() {
     return result;
   };
 
+  // ✅ FIXED: works on both mobile and desktop
   const updateActiveProject = useCallback(() => {
-    if (!containerRef.current || !isDesktop) return;
+    if (!containerRef.current) return;
 
     let topmostIndex = 0;
     let minTopDistance = Infinity;
@@ -70,7 +71,7 @@ export function Projects() {
     });
 
     setActiveProjectIndex(topmostIndex);
-  }, [isDesktop]);
+  }, []);
 
   const checkIsDesktop = useCallback(() => {
     setIsDesktop(window.innerWidth >= 1024);
@@ -113,14 +114,10 @@ export function Projects() {
     updateActiveProject();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener(
-      "resize",
-      () => {
-        checkIsDesktop();
-        updateActiveProject();
-      },
-      { passive: true }
-    );
+    window.addEventListener("resize", () => {
+      checkIsDesktop();
+      updateActiveProject();
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -161,34 +158,30 @@ export function Projects() {
 
                   {activeProject.link && (
                     <div className="flex gap-4">
-                      {activeProject.link && (
-                        <a
-                          href={activeProject.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-                        >
-                          Live
-                          <ArrowUpRight size={16} />
-                        </a>
-                      )}
+                      <a
+                        href={activeProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+                      >
+                        Live
+                        <ArrowUpRight size={16} />
+                      </a>
                     </div>
                   )}
-                  {activeProject.technologies &&
-                    activeProject.technologies.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {activeProject.technologies.map(
-                          (tech: string, index: number) => (
-                            <span
-                              key={index}
-                              className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full"
-                            >
-                              {tech}
-                            </span>
-                          )
-                        )}
-                      </div>
-                    )}
+
+                  {activeProject.technologies?.length ? (
+                    <div className="flex flex-wrap gap-2">
+                      {activeProject.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <div className="opacity-50">
@@ -205,9 +198,7 @@ export function Projects() {
             {projectList.map((project: Project, i: number) => (
               <div
                 key={i}
-                ref={(el: HTMLDivElement | null) => {
-                  projectRefs.current[i] = el;
-                }}
+                ref={(el) => (projectRefs.current[i] = el)}
                 className={`flex flex-col gap-2 w-full scroll-project-item transition-all duration-300 ${
                   i === activeProjectIndex ? "opacity-100" : "opacity-70"
                 }`}
@@ -227,11 +218,8 @@ export function Projects() {
                         {!videosLoaded[i] && (
                           <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
                         )}
-
                         <video
-                          ref={(el: HTMLVideoElement | null) => {
-                            videoRefs.current[i] = el;
-                          }}
+                          ref={(el) => (videoRefs.current[i] = el)}
                           muted
                           loop
                           playsInline
@@ -260,6 +248,8 @@ export function Projects() {
                     )}
                   </div>
                 </div>
+
+                {/* Mobile project info */}
                 <div className="lg:hidden space-y-6 mt-6">
                   <p
                     className="text-lg text-gray-300 leading-relaxed"
@@ -292,20 +282,18 @@ export function Projects() {
                       )}
                     </div>
                   )}
-                  {project.technologies && project.technologies.length > 0 && (
+                  {project.technologies?.length ? (
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.map(
-                        (tech: string, index: number) => (
-                          <span
-                            key={index}
-                            className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        )
-                      )}
+                      {project.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               </div>
             ))}
