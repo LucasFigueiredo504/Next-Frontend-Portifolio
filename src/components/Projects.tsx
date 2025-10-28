@@ -198,7 +198,9 @@ export function Projects() {
             {projectList.map((project: Project, i: number) => (
               <div
                 key={i}
-                ref={(el) => (projectRefs.current[i] = el)}
+                ref={(el) => {
+                  projectRefs.current[i] = el;
+                }}
                 className={`flex flex-col gap-2 w-full scroll-project-item transition-all duration-300 ${
                   i === activeProjectIndex ? "opacity-100" : "opacity-70"
                 }`}
@@ -219,7 +221,9 @@ export function Projects() {
                           <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
                         )}
                         <video
-                          ref={(el) => (videoRefs.current[i] = el)}
+                          ref={(el) => {
+                            videoRefs.current[i] = el;
+                          }}
                           muted
                           loop
                           playsInline
