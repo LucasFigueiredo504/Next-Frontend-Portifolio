@@ -21,7 +21,7 @@ export function Projects() {
     new Array(projectList.length).fill(false)
   );
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isDesktop, setIsDesktop] = useState<boolean>(false); // New state to track desktop view
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   const handleVideoLoaded = (index: number) => {
     setVideosLoaded((prev) => {
@@ -31,7 +31,6 @@ export function Projects() {
     });
   };
 
-  // Helper: highlight project titles inside a description
   const highlightTitles = (text: string): string => {
     if (!text) return text;
 
@@ -48,7 +47,7 @@ export function Projects() {
   };
 
   const updateActiveProject = useCallback(() => {
-    if (!containerRef.current || !isDesktop) return; // Only update on desktop
+    if (!containerRef.current || !isDesktop) return;
 
     let topmostIndex = 0;
     let minTopDistance = Infinity;
@@ -71,14 +70,12 @@ export function Projects() {
     });
 
     setActiveProjectIndex(topmostIndex);
-  }, [isDesktop]); // Add isDesktop as a dependency
+  }, [isDesktop]);
 
-  // Check if the view is desktop (lg breakpoint)
   const checkIsDesktop = useCallback(() => {
-    setIsDesktop(window.innerWidth >= 1024); // Tailwind's lg breakpoint is 1024px
+    setIsDesktop(window.innerWidth >= 1024);
   }, []);
 
-  // Control video playback based on active project
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
@@ -93,7 +90,6 @@ export function Projects() {
   }, [activeProjectIndex]);
 
   useEffect(() => {
-    // Initial check for desktop view
     checkIsDesktop();
 
     videoRefs.current.forEach((video, index) => {
@@ -120,7 +116,7 @@ export function Projects() {
     window.addEventListener(
       "resize",
       () => {
-        checkIsDesktop(); // Update isDesktop on resize
+        checkIsDesktop();
         updateActiveProject();
       },
       { passive: true }
@@ -216,8 +212,16 @@ export function Projects() {
                   i === activeProjectIndex ? "opacity-100" : "opacity-70"
                 }`}
               >
-                <div className="bg-white/5 border border-white/10 h-96 w-full flex justify-center items-center rounded-lg p-4">
-                  <div className="relative w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
+                <div className="bg-white/5 border border-white/10 h-96 w-full flex justify-center items-center rounded-lg p-4 relative overflow-hidden">
+                  {/* Aurora Effect - only show on active project */}
+                  {i === activeProjectIndex && (
+                    <div className="absolute inset-0 z-0">
+                      <div className="absolute -top-10 left-1/2 w-[100vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl animate-aurora" />
+                      <div className="absolute -top-10 left-1/2 w-[80vw] h-[100vh] -translate-x-1/3 -translate-y-2/3 rounded-full bg-secondary/20 blur-3xl animate-aurora [animation-delay:-10s]" />
+                    </div>
+                  )}
+
+                  <div className="relative z-10 w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
                     {project.videoUrl ? (
                       <>
                         {!videosLoaded[i] && (
@@ -260,7 +264,7 @@ export function Projects() {
                   <p
                     className="text-lg text-gray-300 leading-relaxed"
                     dangerouslySetInnerHTML={{
-                      __html: highlightTitles(project.content || ""), // Use project.content directly
+                      __html: highlightTitles(project.content || ""),
                     }}
                   />
                   {(project.githubUrl || project.link) && (
