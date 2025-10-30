@@ -13,7 +13,7 @@ const catamaran = Catamaran({
 
 export const metadata = {
   title: "Portifólio Frontend",
-  description: "Meu protifólio frontend feito em Next js e Tailwind Css",
+  description: "Meu portifólio frontend feito em Next js e Tailwind Css",
 };
 
 export default function RootLayout({
