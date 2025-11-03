@@ -33,7 +33,7 @@ export function Hero() {
                 <Linkedin size={22} />
               </a>
               <a
-                href="https://github.com/lucastheldl"
+                href="https://github.com/LucasFigueiredo504"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-accent transition-colors duration-300"
