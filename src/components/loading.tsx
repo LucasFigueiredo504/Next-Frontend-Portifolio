@@ -51,11 +51,11 @@ export function LoadingScreen() {
       return (
         <div
           key={i}
-          className={`h-full min-w-[6%] bg-background transition-transform ${originClass} ${
+          className={`h-full min-w-[7%] bg-background transition-transform ${originClass} ${
             isAnimating ? "scale-y-0 scale-x-100" : "scale-y-100 scale-x-100"
           }`}
           style={{
-            width: "6%",
+            width: "7%",
             willChange: "transform",
             transitionDelay: `${delay}ms`,
             transitionDuration: `${duration}ms`,

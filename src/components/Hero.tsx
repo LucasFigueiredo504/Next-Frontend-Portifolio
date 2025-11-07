@@ -24,7 +24,7 @@ export function Hero() {
             </h1>
             <div className="flex gap-4">
               <a
-                href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
+                href="https://www.linkedin.com/in/lucas-emanoel-figueiredo-da-silva/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-accent transition-colors duration-300"
