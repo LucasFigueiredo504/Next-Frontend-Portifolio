@@ -1,6 +1,77 @@
 "use client";
 import { useState, useEffect } from "react";
-import TextType from "./TextType";
+
+interface TextTypeProps {
+  text: string[];
+  typingSpeed?: number;
+  pauseDuration?: number;
+  showCursor?: boolean;
+  cursorCharacter?: string;
+}
+
+function TextType({
+  text,
+  typingSpeed = 50,
+  pauseDuration = 1000,
+  showCursor = true,
+  cursorCharacter = "|",
+}: TextTypeProps) {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (currentLineIndex >= text.length) {
+      return;
+    }
+
+    const currentLine = text[currentLineIndex];
+
+    if (isPaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, pauseDuration);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    if (!isDeleting && currentIndex < currentLine.length) {
+      const timer = setTimeout(() => {
+        setDisplayText(currentLine.substring(0, currentIndex + 1));
+        setCurrentIndex(currentIndex + 1);
+      }, typingSpeed);
+      return () => clearTimeout(timer);
+    } else if (!isDeleting && currentIndex === currentLine.length) {
+      setIsPaused(true);
+    } else if (isDeleting && currentIndex > 0) {
+      const timer = setTimeout(() => {
+        setDisplayText(currentLine.substring(0, currentIndex - 1));
+        setCurrentIndex(currentIndex - 1);
+      }, typingSpeed / 2);
+      return () => clearTimeout(timer);
+    } else if (isDeleting && currentIndex === 0) {
+      setIsDeleting(false);
+      setCurrentLineIndex(currentLineIndex + 1);
+    }
+  }, [
+    currentIndex,
+    currentLineIndex,
+    isDeleting,
+    isPaused,
+    text,
+    typingSpeed,
+    pauseDuration,
+  ]);
+
+  return (
+    <span>
+      {displayText}
+      {showCursor && <span className="animate-pulse">{cursorCharacter}</span>}
+    </span>
+  );
+}
 
 export function LoadingScreen() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -15,17 +86,14 @@ export function LoadingScreen() {
     );
     setRandomValues(values);
 
-    // Start fading hello text after 1.3 seconds
     const fadeTimer = setTimeout(() => {
       setFadeHello(true);
     }, 1300);
 
-    // Hide hello text after fade completes
     const helloTimer = setTimeout(() => {
       setShowHello(false);
     }, 1500);
 
-    // Start strips animation after hello text disappears (add small delay)
     const animationTimer = setTimeout(() => {
       setIsAnimating(true);
     }, 1500);
@@ -51,15 +119,16 @@ export function LoadingScreen() {
       return (
         <div
           key={i}
-          className={`h-full min-w-[7%] bg-background transition-transform ${originClass} ${
+          className={`h-full bg-background transition-transform ${originClass} ${
             isAnimating ? "scale-y-0 scale-x-100" : "scale-y-100 scale-x-100"
           }`}
           style={{
-            width: "7%",
+            width: "calc(5% + 1px)",
+            marginLeft: i === 0 ? "0" : "-1px",
             willChange: "transform",
             transitionDelay: `${delay}ms`,
             transitionDuration: `${duration}ms`,
-            animation: "ease-out",
+            transitionTimingFunction: "ease-out",
           }}
         ></div>
       );
@@ -68,7 +137,6 @@ export function LoadingScreen() {
 
   return (
     <div className="fixed pointer-events-none inset-0 flex flex-col justify-between h-screen w-screen z-50">
-      {/* Hello text overlay */}
       {showHello && (
         <div
           className={`absolute inset-0 flex items-center justify-center z-10 text-xl uppercase transition-opacity duration-500 ${
@@ -85,8 +153,8 @@ export function LoadingScreen() {
         </div>
       )}
 
-      <div className="flex flex-1">{renderStrips(0, "origin-top ")}</div>
-      <div className="flex flex-1">{renderStrips(20, "origin-bottom ")}</div>
+      <div className="flex flex-1">{renderStrips(0, "origin-top")}</div>
+      <div className="flex flex-1">{renderStrips(20, "origin-bottom")}</div>
     </div>
   );
 }
