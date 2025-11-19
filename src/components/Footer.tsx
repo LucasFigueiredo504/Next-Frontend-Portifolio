@@ -88,7 +88,7 @@ export function Footer() {
             </h3>
             <div className="flex flex-col space-y-4">
               <a
-                href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
+                href="https://www.linkedin.com/in/lucas-emanoel-figueiredo-da-silva/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-slate-400 hover:text-accent transition-colors group text-sm sm:text-base"
@@ -97,7 +97,7 @@ export function Footer() {
                 <span className="group-hover:underline">LinkedIn</span>
               </a>
               <a
-                href="https://github.com/lucastheldl"
+                href="https://github.com/LucasFigueiredo504"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-slate-400 hover:text-accent transition-colors group text-sm sm:text-base"
