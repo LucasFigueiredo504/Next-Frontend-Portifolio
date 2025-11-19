@@ -259,7 +259,7 @@ export function Contact() {
                   LinkedIn
                 </h3>
                 <a
-                  href="https://www.linkedin.com/in/lucas-emanoel-388733234/"
+                  href="https://www.linkedin.com/in/lucas-emanoel-figueiredo-da-silva/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-400 hover:text-accent transition-colors block"
@@ -275,7 +275,7 @@ export function Contact() {
                   GitHub
                 </h3>
                 <a
-                  href="https://github.com/lucastheldl"
+                  href="https://github.com/LucasFigueiredo504"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-400 hover:text-accent transition-colors block"
