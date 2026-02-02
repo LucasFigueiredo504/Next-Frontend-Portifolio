@@ -129,7 +129,7 @@ export const skillsList: Skill[] = [
 export const projectList = [
   {
     link: "https://tickzi.com.br",
-    videoUrl: "tickzi-video.mp4",
+    imageUrl: "tk.jpg",
     title: "Tickzi",
     technologies: [
       "Next.js",
@@ -145,7 +145,7 @@ export const projectList = [
   },
   {
     link: "https://maratonadaamazonia.com.br/en",
-    videoUrl: "maratona-video.mp4",
+    imageUrl: "ca.jpg",
     title: "Maratona da Amazônia",
     technologies: ["Next.js", "Tailwind", "Typescript"],
     content:
@@ -154,7 +154,7 @@ export const projectList = [
   {
     link: "https://www.globaldiscounting.com/",
     title: "Global Discounting",
-    videoUrl: "/global-video.mp4",
+    imageUrl: "/gd.jpg",
     technologies: ["Next.js", "Typescript", "Tailwind", "Shadcn"],
     content:
       "Global Discounting is a digital financial platform that provides companies with innovative solutions to unlock cash flow and manage licensing agreements efficiently.",
@@ -162,7 +162,7 @@ export const projectList = [
   {
     link: "https://master-tables.vercel.app/",
     title: "RPG Manager",
-    videoUrl: "/tables-video.mp4",
+    imageUrl: "/mt.jpg",
     technologies: [
       "Next.js",
       "Typescript",

@@ -10,26 +10,13 @@ interface Project {
   githubUrl?: string;
   link?: string;
   imageUrl?: string;
-  videoUrl?: string;
 }
 
 export function Projects() {
   const [activeProjectIndex, setActiveProjectIndex] = useState<number>(0);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const [videosLoaded, setVideosLoaded] = useState<boolean[]>(
-    new Array(projectList.length).fill(false)
-  );
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
-
-  const handleVideoLoaded = (index: number) => {
-    setVideosLoaded((prev) => {
-      const newState = [...prev];
-      newState[index] = true;
-      return newState;
-    });
-  };
 
   const highlightTitles = (text: string): string => {
     if (!text) return text;
@@ -78,26 +65,7 @@ export function Projects() {
   }, []);
 
   useEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (video) {
-        if (index === activeProjectIndex) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }
-    });
-  }, [activeProjectIndex]);
-
-  useEffect(() => {
     checkIsDesktop();
-
-    videoRefs.current.forEach((video, index) => {
-      if (video && video.readyState >= 3) {
-        handleVideoLoaded(index);
-      }
-    });
 
     let ticking = false;
 
@@ -214,29 +182,8 @@ export function Projects() {
                     </div>
                   )}
 
-                  <div className="relative z-10 w-full border border-slate-600 h-60 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
-                    {project.videoUrl ? (
-                      <>
-                        {!videosLoaded[i] && (
-                          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse" />
-                        )}
-                        <video
-                          ref={(el) => {
-                            videoRefs.current[i] = el;
-                          }}
-                          muted
-                          loop
-                          playsInline
-                          onCanPlay={() => handleVideoLoaded(i)}
-                          className={`w-full h-full object-cover transition-opacity duration-300 ${
-                            videosLoaded[i] ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          <source src={project.videoUrl} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </>
-                    ) : project.imageUrl ? (
+                  <div className="relative z-10 border border-slate-600 h-full w-auto rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
+                    {project.imageUrl ? (
                       <img
                         src={project.imageUrl}
                         alt={project.title}

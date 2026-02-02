@@ -3,17 +3,7 @@ import TextType from "./TextType";
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-background text-primary">
-      {/* Additional fade mask for edges */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 100%, #0d1117 90%)",
-          mixBlendMode: "multiply",
-        }}
-      />
-
+    <section className="relative w-full min-h-screen flex items-center justify-center text-primary">
       <div className="container mx-auto max-w-6xl z-10 flex flex-col-reverse md:flex-row gap-12 py-20 px-6 md:px-4">
         {/* Text Content */}
         <div className="flex flex-col gap-2 md:gap-1 text-center md:text-left items-center md:items-start">
@@ -56,13 +46,13 @@ export function Hero() {
           />
 
           {/* Description */}
-          <p className="max-w-xl text-base sm:text-lg text-slate-300 px-4 md:px-0 leading-relaxed">
+          {/* <p className="max-w-xl text-base sm:text-lg text-slate-300 px-4 md:px-0 leading-relaxed">
             I build elegant and responsive web applications, turning complex
             problems into beautiful, intuitive digital experiences.
-          </p>
+          </p> */}
 
           {/* CTA Button */}
-          <div className="mt-8 md:mt-6">
+          {/* <div className="mt-8 md:mt-6">
             <a
               href="/files/curriculo.pdf"
               download
@@ -70,7 +60,7 @@ export function Hero() {
             >
               Download CV
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

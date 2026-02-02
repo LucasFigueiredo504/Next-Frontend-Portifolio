@@ -77,10 +77,10 @@ export function About() {
               experiences that people love to use.
             </p>
             <p>
-              I’m <strong className="text-accent font-semibold">Lucas</strong>,
-              driven by curiosity, constantly learning, and excited to create
-              digital projects that combine design, functionality, and
-              innovation.
+              My name is{" "}
+              <strong className="text-accent font-semibold">Lucas</strong>, i
+              build elegant and responsive web applications, turning complex
+              problems into beautiful, intuitive digital experiences.
             </p>
           </div>
 
