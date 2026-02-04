@@ -23,9 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${roboto.variable} ${catamaran.variable} font-sans bg-background overflow-x-hidden`}
-      >
+      <body className={`${catamaran.variable} bg-background overflow-x-hidden`}>
         <GoogleTagManager gtmId="G-0Y4Y2H58FZ" />
         <GoogleTagManager gtmId="GTM-WBN6DL78" />
         <Providers>{children}</Providers>

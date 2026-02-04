@@ -129,7 +129,7 @@ export const skillsList: Skill[] = [
 export const projectList = [
   {
     link: "https://tickzi.com.br",
-    imageUrl: "tk.jpg",
+    images: ["/tk.jpg", "/tk_1.jpg", "/tk_2.jpg"],
     title: "Tickzi",
     technologies: [
       "Next.js",
@@ -145,7 +145,7 @@ export const projectList = [
   },
   {
     link: "https://maratonadaamazonia.com.br/en",
-    imageUrl: "ca.jpg",
+    images: ["/ca.jpg", "/ca_1.jpg", "/ca_2.jpg"],
     title: "Maratona da Amazônia",
     technologies: ["Next.js", "Tailwind", "Typescript"],
     content:
@@ -154,7 +154,7 @@ export const projectList = [
   {
     link: "https://www.globaldiscounting.com/",
     title: "Global Discounting",
-    imageUrl: "/gd.jpg",
+    images: ["/gd.jpg", "/gb_1.jpg", "/gb_2.jpg"],
     technologies: ["Next.js", "Typescript", "Tailwind", "Shadcn"],
     content:
       "Global Discounting is a digital financial platform that provides companies with innovative solutions to unlock cash flow and manage licensing agreements efficiently.",
@@ -162,7 +162,7 @@ export const projectList = [
   {
     link: "https://master-tables.vercel.app/",
     title: "RPG Manager",
-    imageUrl: "/mt.jpg",
+    images: ["/mt.jpg", "/mt_1.jpg"],
     technologies: [
       "Next.js",
       "Typescript",
@@ -172,6 +172,6 @@ export const projectList = [
       "PostgreSQL",
     ],
     content:
-      "RPG Manager é um website utilitário para gerenciamento de campanhas de RPG, com criação e administração de elementos por meio de tabelas dinâmicas e gerenciadores de estatísticas de personagens.",
+      "RPG Manager is a utility website for managing RPG campaigns, allowing the creation and administration of elements through dynamic tables and character statistics managers.",
   },
 ];

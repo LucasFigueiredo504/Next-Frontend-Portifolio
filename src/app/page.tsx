@@ -16,7 +16,7 @@ export default function Home() {
           colorStops={["#00f7ff", "#B19EEF", "#5227FF"]}
           blend={0.5}
           amplitude={0.5}
-          speed={0.5}
+          speed={1}
         />
       </div>
       <Hero />

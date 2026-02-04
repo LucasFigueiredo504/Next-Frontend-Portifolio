@@ -2,6 +2,14 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { projectList } from "../lib/lists";
 import { ArrowUpRight, Github } from "lucide-react";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Project {
   title: string;
@@ -9,7 +17,7 @@ interface Project {
   technologies?: string[];
   githubUrl?: string;
   link?: string;
-  imageUrl?: string;
+  images: string[] | [];
 }
 
 export function Projects() {
@@ -17,6 +25,7 @@ export function Projects() {
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [api, setApi] = useState<CarouselApi>();
 
   const highlightTitles = (text: string): string => {
     if (!text) return text;
@@ -33,7 +42,6 @@ export function Projects() {
     return result;
   };
 
-  // ✅ FIXED: works on both mobile and desktop
   const updateActiveProject = useCallback(() => {
     if (!containerRef.current) return;
 
@@ -65,6 +73,13 @@ export function Projects() {
   }, []);
 
   useEffect(() => {
+    if (!api) return;
+
+    // No need to reinit, the loop option is already set in opts
+    api.scrollSnapList();
+  }, [api]);
+
+  useEffect(() => {
     checkIsDesktop();
 
     let ticking = false;
@@ -79,18 +94,19 @@ export function Projects() {
       }
     };
 
+    const handleResize = () => {
+      checkIsDesktop();
+      updateActiveProject();
+    };
+
     updateActiveProject();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", () => {
-      checkIsDesktop();
-      updateActiveProject();
-    });
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", checkIsDesktop);
-      window.removeEventListener("resize", updateActiveProject);
+      window.removeEventListener("resize", handleResize);
     };
   }, [updateActiveProject, checkIsDesktop]);
 
@@ -101,7 +117,7 @@ export function Projects() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-4 gap-24">
           {/* Sticky description for large screens */}
-          <div className="hidden lg:block lg:sticky lg:top-20 lg:h-fit">
+          <div className="hidden lg:block lg:sticky lg:top-40 lg:h-fit">
             <div className="mb-16">
               <h2
                 className="text-4xl font-medium tracking-tight text-primary"
@@ -173,7 +189,7 @@ export function Projects() {
                   i === activeProjectIndex ? "opacity-100" : "opacity-70"
                 }`}
               >
-                <div className="bg-white/5 border border-white/10 h-96 w-full flex justify-center items-center rounded-lg p-4 relative overflow-hidden">
+                <div className="bg-white/5 border border-white/10  w-full flex justify-center items-center rounded-lg p-4 relative overflow-hidden">
                   {/* Aurora Effect - only show on active project */}
                   {i === activeProjectIndex && (
                     <div className="absolute inset-0 z-0">
@@ -182,22 +198,48 @@ export function Projects() {
                     </div>
                   )}
 
-                  <div className="relative z-10 border border-slate-600 h-full w-auto rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
-                    {project.imageUrl ? (
-                      <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-white/10 flex items-center justify-center">
-                        <span className="text-gray-400 text-lg">
-                          {project.title}
-                        </span>
-                      </div>
+                  <Carousel
+                    className="w-full h-full relative"
+                    setApi={setApi}
+                    opts={{
+                      loop: true,
+                      align: "center",
+                    }}
+                  >
+                    <CarouselContent className="h-full">
+                      {project.images.map((image, index) => (
+                        <CarouselItem
+                          key={index}
+                          className="relative z-10 h-full pl-4"
+                        >
+                          <div className="h-full w-full border border-slate-600 rounded-lg overflow-hidden bg-white/10 transition-all duration-300 hover:bg-white/15">
+                            {image ? (
+                              <img
+                                src={image}
+                                alt={`${project.title} - Image ${index + 1}`}
+                                className="w-full h-auto object-contain"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-white/10 flex items-center justify-center">
+                                <span className="text-gray-400 text-lg">
+                                  {project.title}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+
+                    {/* Navigation buttons - only show if there are multiple images */}
+                    {project.images.length > 1 && (
+                      <>
+                        <CarouselPrevious className="left-2 z-30 bg-background/40 text-white border-white/20 hover:bg-black/70 hover:text-white" />
+                        <CarouselNext className="right-2 z-30 bg-background/40 text-white border-white/20 hover:bg-black/70 hover:text-white" />
+                      </>
                     )}
-                  </div>
+                  </Carousel>
                 </div>
 
                 {/* Mobile project info */}
@@ -218,6 +260,7 @@ export function Projects() {
                           className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
                         >
                           <Github size={16} />
+                          GitHub
                         </a>
                       )}
                       {project.link && (
