@@ -91,7 +91,7 @@ export function Contact() {
   };
 
   return (
-    <div className="relative w-full max-w-6xl">
+    <div className="relative w-full max-w-6xl" id="contact">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-24 z-10">
         {/* Header */}
         <motion.div
