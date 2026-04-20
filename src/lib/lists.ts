@@ -159,7 +159,7 @@ export const projectList = [
     content:
       "Global Discounting is a digital financial platform that provides companies with innovative solutions to unlock cash flow and manage licensing agreements efficiently.",
   },
-  {
+  /*  {
     link: "https://master-tables.vercel.app/",
     title: "RPG Manager",
     images: ["/mt.jpg", "/mt_1.jpg"],
@@ -173,5 +173,13 @@ export const projectList = [
     ],
     content:
       "RPG Manager is a utility website for managing RPG campaigns, allowing the creation and administration of elements through dynamic tables and character statistics managers.",
+  }, */
+  {
+    link: "https://www.tellarheaven.com.br",
+    title: "Illustrator Portfólio website",
+    images: ["/tl_3.jpg", "/tl_2.jpg", "/tl.jpg"],
+    technologies: ["React.js", "Typescript", "Sanity", "Tailwind"],
+    content:
+      "An artistic and dynamic portfolio for a prominent digital artist, aimed at showcasing artworks as well as displaying dynamic graphic stories using Sanity as a CMS",
   },
 ];

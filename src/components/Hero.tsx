@@ -41,7 +41,7 @@ export function Hero() {
             pauseDuration={1500}
             showCursor={false}
             cursorCharacter="|"
-            initialDelay={1500}
+            initialDelay={0}
             className="text-5xl md:text-7xl font-thin tracking-tight leading-tight"
           />
 

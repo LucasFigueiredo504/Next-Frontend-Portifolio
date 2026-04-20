@@ -12,7 +12,7 @@ const catamaran = Catamaran({
 });
 
 export const metadata = {
-  title: "Portifólio Frontend",
+  title: "Lucas Figueiredo | Web Developer",
   description: "Meu portifólio frontend feito em Next js e Tailwind Css",
 };
 

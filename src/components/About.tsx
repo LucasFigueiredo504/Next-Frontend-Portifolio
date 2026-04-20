@@ -61,26 +61,29 @@ export function About() {
           {/* Text Content on Left */}
           <div className="text-base sm:text-lg text-slate-300 space-y-6 leading-relaxed order-2 lg:order-1 -mt-28 md:-mt-16 lg:mt-0">
             <p>
-              I began my journey in technology in 2018,{" "}
-              <strong className="text-accent font-semibold">
-                developing games
-              </strong>
-              , exploring creativity and interactive experiences that sparked my
-              passion for building.
+              Minha jornada em Tecnologia começou com o hobby de desenvolvimento
+              de jogos na{" "}
+              <strong className="text-accent font-semibold">Unity</strong>.{" "}
             </p>
             <p>
-              In 2021, I shifted my focus to{" "}
+              O contato a interface de games e a experiência criativa
+              despertaram minha paixão por{" "}
+              <strong className="text-accent font-semibold">códigos</strong> e
+              pela resolução lógica de problemas complexos e construtivos, que,
+              naturalmente, trouxeram-me ao caminho do{" "}
               <strong className="text-accent font-semibold">
-                Web Development
+                desenvolvimento web
               </strong>
-              , diving into crafting elegant websites and seamless web
-              experiences that people love to use.
+              .
             </p>
             <p>
-              My name is{" "}
-              <strong className="text-accent font-semibold">Lucas</strong>, i
-              build elegant and responsive web applications, turning complex
-              problems into beautiful, intuitive digital experiences.
+              Atualmente, crio interfaces elegantes e responsivas, transformando
+              problemas em experiências digitais eficientes e satisfatórias que
+              não apenas atendam as necessidades do usuário, mas que agreguem{" "}
+              <strong className="text-accent font-semibold">
+                valor estratégico
+              </strong>{" "}
+              à sua marca.
             </p>
           </div>
 
