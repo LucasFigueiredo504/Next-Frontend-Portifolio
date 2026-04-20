@@ -61,16 +61,16 @@ export function About() {
           {/* Text Content on Left */}
           <div className="text-base sm:text-lg text-slate-300 space-y-6 leading-relaxed order-2 lg:order-1 -mt-28 md:-mt-16 lg:mt-0">
             <p>
-              Minha jornada em Tecnologia começou com o hobby de desenvolvimento
-              de jogos na{" "}
-              <strong className="text-accent font-semibold">Unity</strong>.{" "}
+              Minha jornada em tecnologia começou como um hobby: o
+              desenvolvimento de jogos na{" "}
+              <strong className="text-accent font-semibold">Unity</strong>.
             </p>
             <p>
-              O contato a interface de games e a experiência criativa
+              O contato com a interface e a complexidade construtiva dos games
               despertaram minha paixão por{" "}
               <strong className="text-accent font-semibold">códigos</strong> e
-              pela resolução lógica de problemas complexos e construtivos, que,
-              naturalmente, trouxeram-me ao caminho do{" "}
+              pela resolução lógica-criativa, que, naturalmente, guiaram-me ao
+              caminho do{" "}
               <strong className="text-accent font-semibold">
                 desenvolvimento web
               </strong>
