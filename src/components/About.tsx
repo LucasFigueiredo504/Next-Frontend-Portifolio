@@ -5,7 +5,6 @@ import gamesImage from "../assets/games.jpg";
 import picture from "../assets/picture.webp";
 
 export function About() {
-  // Animation variants for subtle appear effect
   const appearVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -34,7 +33,6 @@ export function About() {
       id="about"
     >
       <div className="container px-6">
-        {/* Header with animation */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -46,7 +44,7 @@ export function About() {
             className="text-3xl sm:text-4xl font-medium tracking-tight"
             style={{ fontFamily: "var(--font-catamaran)" }}
           >
-            Who am I
+            Who I am
           </h2>
           <div className="w-20 sm:w-24 h-1 bg-accent mt-3 sm:mt-4 rounded-full" />
         </motion.div>
@@ -61,29 +59,28 @@ export function About() {
           {/* Text Content on Left */}
           <div className="text-base sm:text-lg text-slate-300 space-y-6 leading-relaxed order-2 lg:order-1 -mt-28 md:-mt-16 lg:mt-0">
             <p>
-              Minha jornada em tecnologia começou como um hobby: o
-              desenvolvimento de jogos na{" "}
+              My journey in technology began as a hobby: game development in{" "}
               <strong className="text-accent font-semibold">Unity</strong>.
             </p>
             <p>
-              O contato com a interface e a complexidade construtiva dos games
-              despertaram minha paixão por{" "}
-              <strong className="text-accent font-semibold">códigos</strong> e
-              pela resolução lógica-criativa, que, naturalmente, guiaram-me ao
-              caminho do{" "}
+              The contact with the interface and the constructive complexity of
+              games sparked my passion for{" "}
+              <strong className="text-accent font-semibold">code</strong> and
+              for logical-creative problem solving, which naturally led me to
+              the path of{" "}
               <strong className="text-accent font-semibold">
-                desenvolvimento web
+                web development
               </strong>
               .
             </p>
             <p>
-              Atualmente, crio interfaces elegantes e responsivas, transformando
-              problemas em experiências digitais eficientes e satisfatórias que
-              não apenas atendam as necessidades do usuário, mas que agreguem{" "}
+              Currently, I build elegant and responsive interfaces, turning
+              problems into efficient and satisfying digital experiences that
+              not only meet the user's needs, but also add{" "}
               <strong className="text-accent font-semibold">
-                valor estratégico
+                strategic value
               </strong>{" "}
-              à sua marca.
+              to your brand.
             </p>
           </div>
 
